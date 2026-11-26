@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SERTES | Identidad</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..800&family=Barlow:wght@400;500;600&family=IBM+Plex+Sans:wght@500;600;700&family=Manrope:wght@500;700;800&family=Red+Hat+Display:wght@500;700;800&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0c1d30;--text:#465668;--steel:#eef2f5;--rule:#d5dde5;
+  /* se cambian al elegir */
+  --fg:#0b2440;--ac:#176fe5;--dark:#0b2440;--acd:#6aa8ff;--btn:#fff;
+  --ff:"Archivo";--fw:700;--fs:112%;--ls:.03em;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Barlow",Arial,sans-serif;font-size:18px;line-height:1.55;color:var(--text);background:#fff}
+.wrap{max-width:1160px;margin:0 auto;padding:0 max(24px,env(safe-area-inset-left,0px))}
+h1,h2{font-family:"Barlow",Arial,sans-serif;font-weight:600;color:var(--ink);line-height:1.15;margin:0}
+h1{font-size:clamp(32px,4.4vw,48px)}
+h2{font-size:28px}
+p{margin:12px 0 0;max-width:700px}
+.top{padding:56px 0 32px}
+section{padding:56px 0;border-top:1px solid var(--rule)}
+
+/* El logotipo: solo texto compuesto */
+.lk{display:inline-flex;flex-direction:column;gap:.24em;font-size:var(--size,48px);color:var(--fg);line-height:1}
+.nm{font-family:var(--ff),Arial,sans-serif;font-weight:var(--fw);font-stretch:var(--fs);letter-spacing:var(--ls);white-space:nowrap;display:inline-flex;align-items:baseline}
+.tg{font-family:var(--ff),Arial,sans-serif;font-weight:500;font-stretch:100%;font-size:.265em;letter-spacing:.01em;white-space:nowrap;opacity:.78}
+.dot{display:none;width:.17em;height:.17em;border-radius:50%;background:var(--ac);margin-left:.07em;flex:none}
+.d-dot .dot{display:block}
+.d-line .nm{padding-bottom:.2em;border-bottom:.045em solid var(--ac)}
+.d-line{gap:.2em}
+.d-bar{flex-direction:row;align-items:center;gap:.36em}
+.d-bar .tg{border-left:.11em solid var(--ac);padding:.5em 0 .5em 1.1em;white-space:normal;max-width:9.5em;line-height:1.2}
+.on-dark{color:#fff}
+.on-dark .dot{background:var(--acd)}
+.on-dark.d-line .nm,.on-dark.d-bar .tg{border-color:var(--acd)}
+
+/* Vista previa fija */
+.preview{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--rule);box-shadow:0 6px 18px rgba(12,29,48,.06)}
+.preview .wrap{display:grid;grid-template-columns:1.5fr 1fr;gap:12px;padding-block:12px}
+.pv{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:92px;padding:14px 22px;border:1px solid var(--rule);border-radius:4px;min-width:0;--size:34px}
+.pv nav{display:flex;align-items:center;gap:22px;font-size:15px;font-weight:500;color:var(--fg);font-family:var(--ff),Arial,sans-serif}
+.pv nav b{background:var(--ac);color:var(--btn);font-weight:600;padding:9px 16px;border-radius:4px}
+.pv.dk{background:var(--dark);border-color:var(--dark);justify-content:center}
+
+/* Opciones */
+.opts{display:grid;gap:12px;margin-top:28px}
+.opt{all:unset;box-sizing:border-box;display:grid;cursor:pointer;border:1px solid var(--rule);border-radius:4px;padding:22px 24px;min-width:0;transition:border-color .15s}
+.opt:hover{border-color:#8fa3b8}
+.opt[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.opt:focus-visible{outline:3px solid #176fe5;outline-offset:2px}
+.opt small{font-size:16px;color:var(--text)}
+.opt strong{color:var(--ink);font-weight:600}
+.fonts .opt{grid-template-columns:240px 1fr auto;gap:28px;align-items:center}
+.fonts .big{font-size:58px;line-height:1;color:#000;white-space:nowrap;overflow:hidden}
+.fonts .sm{font-size:22px;line-height:1;color:#000;white-space:nowrap}
+.grid4{grid-template-columns:repeat(4,1fr)}
+.grid2{grid-template-columns:repeat(2,1fr)}
+.details .opt{gap:22px;align-content:space-between;min-height:170px;--size:34px}
+.pal .opt{gap:16px;padding:0;overflow:hidden}
+.pal .half{display:grid;place-items:center;min-height:104px;padding:18px;--size:28px}
+.pal .half.dk{background:var(--dark)}
+.pal .meta{padding:0 18px 18px;display:grid;gap:8px}
+.sw{display:flex;gap:6px}
+.sw i{width:26px;height:26px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
+.case{display:inline-flex;margin-top:20px;border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.case button{all:unset;cursor:pointer;padding:9px 18px;font-size:16px;font-weight:500;color:var(--text)}
+.case button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.case button:focus-visible{outline:3px solid #176fe5;outline-offset:-3px}
+.sum{background:var(--steel);border-radius:4px;padding:24px 28px;margin:0 0 72px}
+.sum p{margin-top:8px}
+@media (max-width:900px){
+  .preview .wrap{grid-template-columns:1fr}
+  .pv.dk{display:none}
+  .pv nav span{display:none}
+  .fonts .opt{grid-template-columns:1fr;gap:12px}
+  .fonts .big{font-size:44px}
+  .grid4{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){.grid4,.grid2{grid-template-columns:1fr}.pv{--size:28px}}
+</style>
+</head>
+<body>
+
+<div class="wrap top">
+  <h1>Identidad de SERTES: nombre, tipografía y color</h1>
+  <p>Sin icono y sin tocar las letras: el nombre compuesto en una tipografía profesional, con un solo detalle discreto. Elige una opción en cada bloque y la cabecera de arriba cambia al momento.</p>
+</div>
+
+<div class="preview" aria-live="polite">
+  <div class="wrap">
+    <div class="pv"><div class="lk" data-lk></div><nav><span>Servicios</span><span>Equipos</span><span>Cobertura</span><b>Contacto</b></nav></div>
+    <div class="pv dk"><div class="lk on-dark" data-lk></div></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section>
+    <h2>Tipografía</h2>
+    <p>Cinco familias de uso libre, todas con variedad de pesos para usarlas también en la web y en documentos. Se muestran en negro, a tamaño grande y a tamaño de cabecera.</p>
+    <div class="case" role="group" aria-label="Caja">
+      <button data-case="upper">SERTES</button><button data-case="title">Sertes</button>
+    </div>
+    <div class="opts fonts" id="fonts"></div>
+  </section>
+
+  <section>
+    <h2>Detalle</h2>
+    <p>Uno solo, y fuera de las letras.</p>
+    <div class="opts grid4 details" id="details"></div>
+  </section>
+
+  <section>
+    <h2>Paleta</h2>
+    <p>Un tono oscuro para el nombre y los fondos, y un único color de acento para el detalle, los botones y los enlaces.</p>
+    <div class="opts grid4 pal" id="palettes"></div>
+  </section>
+
+  <div class="sum">
+    <h2>Combinación elegida</h2>
+    <p id="summary"></p>
+  </div>
+</div>
+
+<script>
+const FONTS = [
+  { id:'archivo', name:'Archivo', ff:"'Archivo'", fw:700, fs:'112%', ls:'.03em', lsT:'-.005em',
+    note:'Grotesca ancha y firme. Recuerda a los rótulos de instrumentos de medida.' },
+  { id:'plex', name:'IBM Plex Sans', ff:"'IBM Plex Sans'", fw:600, fs:'100%', ls:'.06em', lsT:'0em',
+    note:'Diseñada para ingeniería. Sobria, con terminaciones rectas de aire técnico.' },
+  { id:'titillium', name:'Titillium Web', ff:"'Titillium Web'", fw:700, fs:'100%', ls:'.05em', lsT:'0em',
+    note:'Curvas algo cuadradas. La que más evoca electrónica sin dejar de ser seria.' },
+  { id:'manrope', name:'Manrope', ff:"'Manrope'", fw:800, fs:'100%', ls:'.035em', lsT:'-.01em',
+    note:'Geométrica y actual. La más amable y la menos industrial.' },
+  { id:'redhat', name:'Red Hat Display', ff:"'Red Hat Display'", fw:800, fs:'100%', ls:'.04em', lsT:'-.005em',
+    note:'Geométrica con carácter. Corporativa de empresa tecnológica.' },
+];
+const DETAILS = [
+  { id:'none', name:'Ninguno', note:'Solo el nombre y el lema.' },
+  { id:'dot',  name:'Piloto', note:'Un punto de color tras el nombre: el piloto de un equipo encendido. Enlaza con «siempre en marcha».' },
+  { id:'line', name:'Línea', note:'Una línea fina de color entre el nombre y el lema.' },
+  { id:'bar',  name:'Barra', note:'El lema a la derecha, separado por una barra vertical de color.' },
+];
+const PALETTES = [
+  { id:'azul', name:'Azul marino y azul', fg:'#0b2440', ac:'#176fe5', dark:'#0b2440', acd:'#6aa8ff', btn:'#fff',
+    note:'La actual. Continuidad total, y el azul es el color más habitual del sector.' },
+  { id:'petroleo', name:'Petróleo y turquesa', fg:'#0e2a33', ac:'#0a7c80', dark:'#0e2a33', acd:'#4fc3c7', btn:'#fff',
+    note:'Sigue siendo frío y clínico, pero se separa del azul que usa casi todo el mundo.' },
+  { id:'verde', name:'Grafito y verde', fg:'#1b2027', ac:'#157f4b', dark:'#1b2027', acd:'#4cd08a', btn:'#fff',
+    note:'El verde de una placa y del piloto de «en marcha». La más ligada a la electrónica.' },
+  { id:'ambar', name:'Grafito y ámbar', fg:'#1f2329', ac:'#e08a00', dark:'#1f2329', acd:'#ffb02e', btn:'#1f2329',
+    note:'Cálida, de taller y de instrumento de medida. La que más destaca y la menos «de laboratorio».' },
+];
+const TAG = 'Servicio técnico especializado';
+const state = { font:'archivo', detail:'dot', palette:'azul', kase:'upper' };
+const $ = id => document.getElementById(id);
+const by = (list, id) => list.find(x => x.id === id);
+
+function lockup(detail, dark) {
+  const word = state.kase === 'upper' ? 'SERTES' : 'Sertes';
+  return `<div class="lk d-${detail}${dark ? ' on-dark' : ''}"><span class="nm">${word}<i class="dot"></i></span><span class="tg">${TAG}</span></div>`;
+}
+function fontVars(f) {
+  return `--ff:${f.ff};--fw:${f.fw};--fs:${f.fs};--ls:${state.kase === 'upper' ? f.ls : f.lsT}`;
+}
+function palVars(p) {
+  return `--fg:${p.fg};--ac:${p.ac};--dark:${p.dark};--acd:${p.acd};--btn:${p.btn}`;
+}
+function render() {
+  const f = by(FONTS, state.font), p = by(PALETTES, state.palette), d = by(DETAILS, state.detail);
+  document.documentElement.style.cssText = fontVars(f) + ';' + palVars(p);
+  const word = state.kase === 'upper' ? 'SERTES' : 'Sertes';
+
+  document.querySelectorAll('.preview .pv').forEach((el, i) => {
+    el.querySelector('.lk').outerHTML = lockup(state.detail, i === 1);
+  });
+  document.querySelectorAll('[data-case]').forEach(b => b.setAttribute('aria-pressed', b.dataset.case === state.kase));
+
+  $('fonts').innerHTML = FONTS.map(x => `
+    <button class="opt" data-k="font" data-v="${x.id}" aria-pressed="${x.id === state.font}" style="${fontVars(x)}">
+      <span><strong>${x.name}</strong><br><small>${x.note}</small></span>
+      <span class="big nm">${word}</span>
+      <span class="sm nm">${word}</span>
+    </button>`).join('');
+
+  $('details').innerHTML = DETAILS.map(x => `
+    <button class="opt" data-k="detail" data-v="${x.id}" aria-pressed="${x.id === state.detail}">
+      ${lockup(x.id, false)}
+      <span><strong>${x.name}</strong><br><small>${x.note}</small></span>
+    </button>`).join('');
+
+  $('palettes').innerHTML = PALETTES.map(x => `
+    <button class="opt" data-k="palette" data-v="${x.id}" aria-pressed="${x.id === state.palette}" style="${palVars(x)}">
+      <span class="half">${lockup(state.detail, false)}</span>
+      <span class="half dk">${lockup(state.detail, true)}</span>
+      <span class="meta"><span class="sw"><i style="background:${x.fg}"></i><i style="background:${x.ac}"></i><i style="background:${x.acd}"></i></span>
+      <strong>${x.name}</strong><small>${x.note}</small></span>
+    </button>`).join('');
+
+  $('summary').textContent = `${f.name}, en ${state.kase === 'upper' ? 'mayúsculas' : 'mayúscula inicial'}; detalle: ${d.name.toLowerCase()}; paleta: ${p.name.toLowerCase()} (${p.fg.toUpperCase()} y ${p.ac.toUpperCase()}).`;
+}
+document.addEventListener('click', e => {
+  const o = e.target.closest('.opt'), c = e.target.closest('[data-case]');
+  if (o) { state[o.dataset.k] = o.dataset.v; render(); document.querySelector(`.opt[data-k="${o.dataset.k}"][data-v="${o.dataset.v}"]`).focus(); }
+  if (c) { state.kase = c.dataset.case; render(); }
+});
+render();
+</script>
+</body>
+</html>
