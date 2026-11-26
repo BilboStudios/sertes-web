@@ -126,7 +126,9 @@ button,input,textarea{font:inherit}
 
 /* Quién te atiende */
 .person{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:72px;align-items:center}
-.portrait{display:flex;align-items:flex-end;justify-content:center;aspect-ratio:4/5;background:var(--steel);border-radius:4px;overflow:hidden}
+.portrait{position:relative;isolation:isolate;display:flex;align-items:flex-end;justify-content:center;aspect-ratio:4/5;background:var(--steel);border-radius:4px;overflow:hidden}
+/* Fondo de laboratorio desenfocado detrás del recorte, para que se lea como un retrato hecho in situ */
+.portrait::before{content:"";position:absolute;inset:-24px;z-index:-1;background:url("https://sertes.es/wp-content/uploads/2026/11/Laboratorio-completo-flipped-scaled.jpg") 30% center/cover;filter:blur(7px) saturate(.7) brightness(1.05)}
 .portrait img{width:78%;height:auto}
 .person p{margin-top:18px;font-size:18px;max-width:580px}
 .person .more{margin-top:28px}
@@ -195,7 +197,7 @@ button,input,textarea{font:inherit}
 .spec div{display:grid;grid-template-columns:170px 1fr;gap:4px 24px;padding:18px 0}
 .spec div + div{border-top:1px solid var(--rule)}
 .spec dt{color:var(--ink);font-weight:600}
-.band-steel .spec,.band-steel .portrait{background:var(--white)}
+.band-steel .spec{background:var(--white)}
 .spec a{color:var(--blue);text-underline-offset:4px}
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .norms{width:100%;min-width:600px;border-collapse:collapse}
