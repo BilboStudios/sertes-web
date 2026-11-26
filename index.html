@@ -6,10 +6,9 @@
 <title>SERTES | Servicio técnico para laboratorios en Navarra</title>
 <meta name="description" content="Mantenimiento, reparación, calibración y cualificación de equipos de laboratorio multimarca en Pamplona y Navarra.">
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,700&family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap" rel="stylesheet">
 <style>
 /* Concepto: todo alineado a la izquierda sobre una sola retícula; una única familia
    (Barlow, de rotulación técnica) en dos anchos; el color de marca solo en acciones.
@@ -23,6 +22,12 @@
   --blue:#176fe5;      /* azul del logotipo: acciones y enlaces */
   --sky:#6aa8ff;       /* azul claro del logotipo en negativo: realces sobre fondo oscuro */
   --rule:#d5dde5;
+  --blue-h:#0f58bd;    /* azul al pasar el ratón */
+  --tint:#dbe9ff;
+  --panel:#12335a;
+  --deep:#06131f;      /* fondo de página en tema oscuro */
+  --navy-rgb:11,36,64;
+  --link:var(--blue);
   --rule-dark:rgba(255,255,255,.18);
   --on-dark:#c9d6e3;
   --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
@@ -50,9 +55,9 @@ button,input,textarea{font:inherit}
 
 .btn{display:inline-block;padding:15px 28px;font-weight:600;font-size:17px;border-radius:4px;border:1px solid transparent;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s}
 .btn-blue{background:var(--blue);color:#fff}
-.btn-blue:hover{background:#0f58bd}
+.btn-blue:hover{background:var(--blue-h)}
 .btn-white{background:#fff;color:var(--ink)}
-.btn-white:hover{background:#dbe9ff}
+.btn-white:hover{background:var(--tint)}
 .btn-outline{border-color:rgba(255,255,255,.45);color:#fff}
 .btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
 
@@ -60,11 +65,14 @@ button,input,textarea{font:inherit}
 .site{position:sticky;top:0;z-index:20;background:var(--white);border-bottom:1px solid var(--rule)}
 .site .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
 .logo{display:grid;gap:5px;text-decoration:none}
-.logo img{height:28px;width:auto}
-.logo span{font-size:13px;font-weight:500;line-height:1;color:var(--text);letter-spacing:.01em}
+.brand{display:inline-flex;align-items:baseline;font-family:"Archivo",Arial,sans-serif;font-weight:700;font-stretch:112%;font-size:27px;line-height:1;letter-spacing:.03em;color:var(--ink)}
+.brand i{width:.17em;height:.17em;border-radius:50%;background:var(--blue);margin-left:.07em}
+.logo small{font-size:13px;font-weight:500;line-height:1;color:var(--text);letter-spacing:.01em}
+.foot .brand{font-size:21px;color:#fff}
+.foot .brand i{background:var(--sky)}
 .menu{display:flex;align-items:center;gap:34px}
 .menu a{font-weight:500;font-size:17px;color:var(--ink);text-decoration:none}
-.menu a:not(.btn):hover{color:var(--blue);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
+.menu a:not(.btn):hover{color:var(--link);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
 .menu .btn{padding:11px 22px;color:#fff}
 .burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--ink)}
 .burger span{display:block;width:26px;height:2px;background:currentColor;margin:6px 0}
@@ -73,7 +81,7 @@ button,input,textarea{font:inherit}
 .hero{position:relative;background:var(--navy);color:var(--on-dark);isolation:isolate;overflow:hidden}
 .hero-photo{position:absolute;inset:0 0 0 40%;z-index:-2;background:url('https://sertes.es/wp-content/uploads/2026/11/Laboratorio-completo-flipped-scaled.jpg') center/cover;opacity:.6;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 50%);mask-image:linear-gradient(90deg,transparent,#000 50%)}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(11,36,64,.25),rgba(11,36,64,.9))}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--navy-rgb),.25),rgba(var(--navy-rgb),.9))}
 .hero-text{padding-block:112px 88px;max-width:880px}
 .hero h1{color:#fff;font-size:clamp(42px,6.4vw,88px);line-height:1}
 .hero-text p{font-size:clamp(19px,1.7vw,23px);max-width:600px;margin-block:28px 40px;color:#e2eaf2}
@@ -98,7 +106,7 @@ button,input,textarea{font:inherit}
 .service ul{display:grid;gap:12px}
 .service li{padding-left:20px;position:relative}
 .service li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--blue)}
-.service a{display:inline-block;margin-top:22px;color:var(--blue);font-weight:600;text-underline-offset:5px}
+.service a{display:inline-block;margin-top:22px;color:var(--link);font-weight:600;text-underline-offset:5px}
 .service a:hover{text-decoration-thickness:2px}
 
 /* Equipos */
@@ -113,7 +121,7 @@ button,input,textarea{font:inherit}
 .gear-list button[aria-selected="true"] span{color:#fff}
 .gear-list button:focus-visible{outline-offset:-3px}
 .viewer{position:sticky;top:108px}
-.viewer-frame{position:relative;aspect-ratio:5/4;max-width:100%;background:#12335a;border-radius:4px;overflow:hidden}
+.viewer-frame{position:relative;aspect-ratio:5/4;max-width:100%;background:var(--panel);border-radius:4px;overflow:hidden}
 .viewer-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
 .viewer-frame img.on{opacity:1}
 .viewer h3{color:#fff;margin-top:22px}
@@ -122,7 +130,7 @@ button,input,textarea{font:inherit}
 /* Proceso */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
 .steps li{border-top:2px solid var(--ink);padding-top:20px}
-.steps .num{display:block;font-family:var(--display);font-weight:600;font-size:64px;line-height:1;color:var(--blue);margin-bottom:18px}
+.steps .num{display:block;font-family:var(--display);font-weight:600;font-size:64px;line-height:1;color:var(--link);margin-bottom:18px}
 .steps p{margin-top:10px;max-width:340px}
 .process .btn{margin-top:56px}
 
@@ -148,12 +156,12 @@ button,input,textarea{font:inherit}
 .field.wide,.form .note,.form .consent,.form .btn{grid-column:1/-1}
 .field label{font-size:16px;font-weight:500;color:var(--ink)}
 .field input,.field textarea{width:100%;padding:11px 12px;color:var(--ink);background:var(--white);border:1px solid #aab7c4;border-radius:4px}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,111,229,.2)}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 25%,transparent)}
 .field textarea{min-height:130px;resize:vertical}
 .form .note{font-size:16px}
 .consent{display:flex;gap:10px;align-items:flex-start;font-size:16px}
 .consent input{width:18px;height:18px;margin-top:4px;accent-color:var(--blue)}
-.consent a{color:var(--blue)}
+.consent a{color:var(--link)}
 .form .btn{justify-self:start}
 
 /* Pie */
@@ -162,6 +170,53 @@ button,input,textarea{font:inherit}
 .foot nav{display:flex;flex-wrap:wrap;gap:8px 28px}
 .foot a{text-underline-offset:4px}
 .foot a:hover{color:#fff}
+
+
+/* ---------- Variantes de vista previa: color y tema ---------- */
+[data-color="petroleo"]{--navy:#0e2a33;--ink:#0e2a33;--text:#47595f;--blue:#0a7c80;--sky:#4fc3c7;--steel:#edf3f3;--rule:#d3dedf;--blue-h:#086467;--tint:#d3eeee;--panel:#17404b;--deep:#07181c;--navy-rgb:14,42,51;--on-dark:#c7d8da}
+
+/* Oscuro: toda la página sobre fondo oscuro */
+[data-tema="oscuro"]{color-scheme:dark;--white:var(--deep);--steel:var(--navy);--ink:#ffffff;--text:var(--on-dark);--rule:var(--rule-dark);--link:var(--sky)}
+[data-tema="oscuro"] .service li::before{background:var(--sky)}
+[data-tema="oscuro"] .brand i{background:var(--sky)}
+[data-tema="oscuro"] .btn-white{color:var(--navy)}
+[data-tema="oscuro"] :focus-visible{outline-color:var(--sky)}
+[data-tema="oscuro"] .field input,[data-tema="oscuro"] .field textarea{border-color:rgba(255,255,255,.35)}
+
+/* Claro: toda la página sobre fondo claro; solo el pie queda oscuro */
+[data-tema="claro"] .hero{background:var(--steel);color:var(--text)}
+[data-tema="claro"] .hero-photo{inset:0 0 0 38%;opacity:1;-webkit-mask-image:linear-gradient(90deg,transparent 4%,#000 46%);mask-image:linear-gradient(90deg,transparent 4%,#000 46%)}
+[data-tema="claro"] .hero::after{background:linear-gradient(0deg,var(--steel) 0 172px,transparent 172px)}
+[data-tema="claro"] .hero h1,[data-tema="claro"] .points strong{color:var(--ink)}
+[data-tema="claro"] .hero-text p{color:var(--text)}
+[data-tema="claro"] .points,[data-tema="claro"] .points li + li{border-color:var(--rule)}
+[data-tema="claro"] .hero .btn-white{background:var(--blue);color:#fff}
+[data-tema="claro"] .hero .btn-white:hover{background:var(--blue-h)}
+[data-tema="claro"] .hero .btn-outline{border-color:var(--ink);color:var(--ink)}
+[data-tema="claro"] .hero .btn-outline:hover{background:rgba(0,0,0,.05)}
+[data-tema="claro"] .gear{background:var(--white);color:var(--text);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+[data-tema="claro"] .gear h2,[data-tema="claro"] .viewer h3,[data-tema="claro"] .contact h2{color:var(--ink)}
+[data-tema="claro"] .gear-list,[data-tema="claro"] .gear-list button,[data-tema="claro"] .channels,[data-tema="claro"] .channels div{border-color:var(--rule)}
+[data-tema="claro"] .gear-list button{color:var(--text)}
+[data-tema="claro"] .gear-list button span{color:var(--text)}
+[data-tema="claro"] .gear-list button:hover{color:var(--ink)}
+[data-tema="claro"] .gear-list button[aria-selected="true"]{color:var(--ink);background:var(--steel);box-shadow:inset 4px 0 0 var(--blue)}
+[data-tema="claro"] .gear-list button[aria-selected="true"] span{color:var(--ink)}
+[data-tema="claro"] .viewer-frame{background:var(--steel)}
+[data-tema="claro"] .contact{background:var(--steel);color:var(--text)}
+[data-tema="claro"] .channels dd a{color:var(--ink)}
+[data-tema="claro"] .hero :focus-visible,[data-tema="claro"] .gear :focus-visible,[data-tema="claro"] .contact :focus-visible{outline-color:var(--blue)}
+@media (max-width:1000px){[data-tema="claro"] .hero-photo{inset:0;opacity:.12;-webkit-mask-image:none;mask-image:none}[data-tema="claro"] .hero::after{background:none}}
+@media (max-width:720px){[data-tema="claro"] .gear-list button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:none}}
+
+/* Barra de vista previa (solo para la demostración; se quita en la web final) */
+.demo{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:30;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;align-items:center;max-width:calc(100vw - 24px);padding:9px 14px;background:#fff;color:#0c1d30;border:1px solid #c4ced8;border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);font-size:15px}
+.demo span{font-weight:600}
+.demo div{display:flex;border:1px solid #c4ced8;border-radius:4px;overflow:hidden}
+.demo button{background:none;border:0;padding:6px 12px;cursor:pointer;color:#465668;font-size:15px}
+.demo button[aria-pressed="true"]{background:#0c1d30;color:#fff}
+.demo button:focus-visible{outline:3px solid #176fe5;outline-offset:-3px}
+body{padding-bottom:0}
 
 @media (max-width:1000px){
   .band{padding-block:84px}
@@ -203,8 +258,8 @@ button,input,textarea{font:inherit}
 <header class="site">
   <div class="wrap">
     <a class="logo" href="#inicio" aria-label="SERTES, inicio">
-      <img src="logo/sertes-logo.svg" alt="SERTES" width="145" height="28">
-      <span>Servicio técnico especializado</span>
+      <span class="brand">SERTES<i></i></span>
+      <small>Servicio técnico especializado</small>
     </a>
     <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
     <nav class="menu" id="menu">
@@ -401,7 +456,7 @@ button,input,textarea{font:inherit}
 
 <footer class="foot">
   <div class="wrap">
-    <img src="logo/sertes-logo-blanco.svg" alt="SERTES" width="114" height="22">
+    <span class="brand">SERTES<i></i></span>
     <span>© <span id="year">2026</span> SERTES. Servicio técnico especializado. Pamplona, Navarra.</span>
     <nav aria-label="Legal">
       <a href="https://sertes.es/aviso-legal/">Aviso legal</a>
@@ -411,8 +466,35 @@ button,input,textarea{font:inherit}
   </div>
 </footer>
 
+<div class="demo" role="group" aria-label="Vista previa">
+  <span>Tema</span>
+  <div><button data-tema="">Mixto</button><button data-tema="claro">Claro</button><button data-tema="oscuro">Oscuro</button></div>
+  <span>Color</span>
+  <div><button data-color="">Azul</button><button data-color="petroleo">Petróleo</button></div>
+</div>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Vista previa de tema y color (demostración). También acepta ?tema=oscuro&color=petroleo
+(function () {
+  const root = document.documentElement, q = new URLSearchParams(location.search);
+  const get = k => { try { return localStorage.getItem('sertes-' + k); } catch (e) { return null; } };
+  const set = (k, v) => { try { localStorage.setItem('sertes-' + k, v); } catch (e) {} };
+  const st = { tema: q.get('tema') ?? get('tema') ?? '', color: q.get('color') ?? get('color') ?? '' };
+  function apply() {
+    for (const k of ['tema', 'color']) {
+      if (st[k]) root.dataset[k] = st[k]; else delete root.dataset[k];
+      document.querySelectorAll('.demo [data-' + k + ']').forEach(b => b.setAttribute('aria-pressed', b.dataset[k] === st[k]));
+    }
+  }
+  document.querySelector('.demo').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    const k = 'tema' in b.dataset ? 'tema' : 'color';
+    st[k] = b.dataset[k]; set(k, st[k]); apply();
+  });
+  apply();
+})();
 
 // Menú móvil
 const burger = document.querySelector('.burger'), menu = document.getElementById('menu');

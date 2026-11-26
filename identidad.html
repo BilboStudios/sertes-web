@@ -29,15 +29,22 @@ section{padding:56px 0;border-top:1px solid var(--rule)}
 .lk{display:inline-flex;flex-direction:column;gap:.24em;font-size:var(--size,48px);color:var(--fg);line-height:1}
 .nm{font-family:var(--ff),Arial,sans-serif;font-weight:var(--fw);font-stretch:var(--fs);letter-spacing:var(--ls);white-space:nowrap;display:inline-flex;align-items:baseline}
 .tg{font-family:var(--ff),Arial,sans-serif;font-weight:500;font-stretch:100%;font-size:.265em;letter-spacing:.01em;white-space:nowrap;opacity:.78}
-.dot{display:none;width:.17em;height:.17em;border-radius:50%;background:var(--ac);margin-left:.07em;flex:none}
+.lk{--a:var(--ac)}
+.on-dark{color:#fff;--a:var(--acd)}
+.dot{display:none;width:.17em;height:.17em;border-radius:50%;background:var(--a);margin-left:.07em;flex:none}
 .d-dot .dot{display:block}
-.d-line .nm{padding-bottom:.2em;border-bottom:.045em solid var(--ac)}
+.d-line .nm{padding-bottom:.2em;border-bottom:.045em solid var(--a)}
 .d-line{gap:.2em}
 .d-bar{flex-direction:row;align-items:center;gap:.36em}
-.d-bar .tg{border-left:.11em solid var(--ac);padding:.5em 0 .5em 1.1em;white-space:normal;max-width:9.5em;line-height:1.2}
-.on-dark{color:#fff}
-.on-dark .dot{background:var(--acd)}
-.on-dark.d-line .nm,.on-dark.d-bar .tg{border-color:var(--acd)}
+.d-bar .tg{border-left:.11em solid var(--a);padding:.5em 0 .5em 1.1em;white-space:normal;max-width:9.5em;line-height:1.2}
+.d-ees .ee{color:var(--a)}
+.d-tag .tg{color:var(--a);opacity:1}
+.d-pre .nm::before{content:"";width:.1em;height:.72em;background:var(--a);margin-right:.17em;align-self:center;flex:none}
+.d-under .nm{position:relative;padding-bottom:.24em}
+.d-under .nm::after{content:"";position:absolute;left:0;bottom:0;width:1.05em;height:.075em;background:var(--a)}
+.d-under{gap:.2em}
+.d-trace .dot{display:block;width:.62em;height:.05em;border-radius:0;align-self:center;margin-left:.16em}
+.d-trace .nm::after{content:"";width:.2em;height:.2em;border:.05em solid var(--a);border-radius:50%;align-self:center;flex:none}
 
 /* Vista previa fija */
 .preview{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid var(--rule);box-shadow:0 6px 18px rgba(12,29,48,.06)}
@@ -59,8 +66,8 @@ section{padding:56px 0;border-top:1px solid var(--rule)}
 .fonts .big{font-size:58px;line-height:1;color:#000;white-space:nowrap;overflow:hidden}
 .fonts .sm{font-size:22px;line-height:1;color:#000;white-space:nowrap}
 .grid4{grid-template-columns:repeat(4,1fr)}
-.grid2{grid-template-columns:repeat(2,1fr)}
-.details .opt{gap:22px;align-content:space-between;min-height:170px;--size:34px}
+.grid3{grid-template-columns:repeat(3,1fr)}
+.details .opt{gap:22px;align-content:space-between;min-height:170px;--size:38px}
 .pal .opt{gap:16px;padding:0;overflow:hidden}
 .pal .half{display:grid;place-items:center;min-height:104px;padding:18px;--size:28px}
 .pal .half.dk{background:var(--dark)}
@@ -79,9 +86,9 @@ section{padding:56px 0;border-top:1px solid var(--rule)}
   .pv nav span{display:none}
   .fonts .opt{grid-template-columns:1fr;gap:12px}
   .fonts .big{font-size:44px}
-  .grid4{grid-template-columns:1fr 1fr}
+  .grid4,.grid3{grid-template-columns:1fr 1fr}
 }
-@media (max-width:560px){.grid4,.grid2{grid-template-columns:1fr}.pv{--size:28px}}
+@media (max-width:560px){.grid4,.grid3{grid-template-columns:1fr}.pv{--size:28px}}
 </style>
 </head>
 <body>
@@ -110,8 +117,8 @@ section{padding:56px 0;border-top:1px solid var(--rule)}
 
   <section>
     <h2>Detalle</h2>
-    <p>Uno solo, y fuera de las letras.</p>
-    <div class="opts grid4 details" id="details"></div>
+    <p>Uno solo, y sin cambiar la forma de las letras. Nueve opciones, de menos a más presencia.</p>
+    <div class="opts grid3 details" id="details"></div>
   </section>
 
   <section>
@@ -144,6 +151,11 @@ const DETAILS = [
   { id:'dot',  name:'Piloto', note:'Un punto de color tras el nombre: el piloto de un equipo encendido. Enlaza con «siempre en marcha».' },
   { id:'line', name:'Línea', note:'Una línea fina de color entre el nombre y el lema.' },
   { id:'bar',  name:'Barra', note:'El lema a la derecha, separado por una barra vertical de color.' },
+  { id:'ees',  name:'Las E en color', note:'Las dos E en el color de acento, sin cambiar su forma. Es lo que ya distingue al logotipo actual.' },
+  { id:'pre',  name:'Marca inicial', note:'Una barra vertical de color delante del nombre, como el borde de una etiqueta de equipo.' },
+  { id:'under', name:'Subrayado corto', note:'Un trazo corto bajo el arranque del nombre.' },
+  { id:'tag',  name:'Lema en color', note:'El nombre limpio; el color solo en el lema.' },
+  { id:'trace', name:'Pista', note:'Una línea corta que sale del nombre y acaba en un punto de soldadura. El más electrónico de todos.' },
 ];
 const PALETTES = [
   { id:'azul', name:'Azul marino y azul', fg:'#0b2440', ac:'#176fe5', dark:'#0b2440', acd:'#6aa8ff', btn:'#fff',
@@ -156,12 +168,12 @@ const PALETTES = [
     note:'Cálida, de taller y de instrumento de medida. La que más destaca y la menos «de laboratorio».' },
 ];
 const TAG = 'Servicio técnico especializado';
-const state = { font:'archivo', detail:'dot', palette:'azul', kase:'upper' };
+const state = { font:'archivo', detail:'dot', palette:'petroleo', kase:'upper' };
 const $ = id => document.getElementById(id);
 const by = (list, id) => list.find(x => x.id === id);
 
 function lockup(detail, dark) {
-  const word = state.kase === 'upper' ? 'SERTES' : 'Sertes';
+  const word = (state.kase === 'upper' ? 'SERTES' : 'Sertes').replace(/e/gi, m => `<span class="ee">${m}</span>`);
   return `<div class="lk d-${detail}${dark ? ' on-dark' : ''}"><span class="nm">${word}<i class="dot"></i></span><span class="tg">${TAG}</span></div>`;
 }
 function fontVars(f) {
