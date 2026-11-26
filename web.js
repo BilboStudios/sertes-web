@@ -56,6 +56,8 @@ const form = document.getElementById('form');
 if (form) {
   const asunto = new URLSearchParams(location.search).get('asunto');
   if (asunto) form.asunto.value = asunto;
+  // Botones que rellenan el asunto (p. ej. la franja de fabricantes)
+  document.querySelectorAll('[data-asunto]').forEach(a => a.addEventListener('click', () => { form.asunto.value = a.dataset.asunto; }));
   form.addEventListener('submit', e => {
     e.preventDefault();
     const d = new FormData(form);

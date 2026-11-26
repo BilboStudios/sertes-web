@@ -258,7 +258,7 @@ button,input,textarea{font:inherit}
 .foot li + li{margin-top:8px}
 .foot a{text-decoration:none}
 .foot a:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
-.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-block:22px 28px;border-top:1px solid var(--rule-dark)}
+.foot-bottom{display:flex;align-items:center;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-block:28px 32px}
 .foot-bottom nav{display:flex;flex-wrap:wrap;gap:6px 24px}
 
 /* Barra de llamada en móvil */

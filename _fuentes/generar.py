@@ -20,11 +20,10 @@ URL = 'https://bilbostudios.github.io/sertes-web/'
 TEL, TEL_TXT = '+34603082442', '+34 603 082 442'
 
 MENU = [
-    ('mantenimiento', 'mantenimiento.html', 'Mantenimiento'),
-    ('calibracion', 'calibracion.html', 'Calibración'),
-    ('fabricantes', 'fabricantes.html', 'Fabricantes'),
-    ('equipos', 'equipos.html', 'Equipos'),
-    ('sertes', 'sertes.html', 'Sobre SERTES'),
+    ('servicios', 'index.html#servicios', 'Servicios'),
+    ('equipos', 'index.html#equipos', 'Equipos'),
+    ('sertes', 'index.html#sertes', 'Sobre SERTES'),
+    ('fabricantes', 'index.html#fabricantes', 'Fabricantes'),
 ]
 
 CANALES = f'''<dl class="channels">
@@ -52,8 +51,7 @@ def cabecera(actual):
     for clave, href, texto in MENU:
         cur = ' aria-current="page"' if clave == actual else ''
         enlaces.append(f'<a href="{href}"{cur}>{texto}</a>')
-    cur = ' aria-current="page"' if actual == 'contacto' else ''
-    enlaces.append(f'<a class="btn btn-blue" href="contacto.html"{cur}>Contacto</a>')
+    enlaces.append('<a class="btn btn-blue" href="index.html#contacto">Contacto</a>')
     return f'''<a class="skip" href="#contenido">Saltar al contenido</a>
 <header class="site">
   <div class="wrap">
@@ -79,7 +77,7 @@ def cierre(dato):
       </div>
       <div class="cta-side">
         <div class="actions">
-          <a class="btn btn-white" href="contacto.html">Solicitar asistencia</a>
+          <a class="btn btn-white" href="index.html#contacto">Solicitar asistencia</a>
           <a class="btn btn-line" href="tel:{TEL}">Llamar al {TEL_TXT[4:]}</a>
         </div>
         <p>También por <a href="https://wa.me/34603082442" target="_blank" rel="noopener">WhatsApp</a> o en <a href="mailto:sertes@sertes.es">sertes@sertes.es</a>.</p>
@@ -90,40 +88,10 @@ def cierre(dato):
 
 PIE = f'''<footer class="foot">
   <div class="wrap">
-    <div class="foot-top">
-      <div>
-        <span class="brand">SERTES<i></i></span>
-        <p class="foot-about">Servicio técnico especializado en equipos de laboratorio. Pamplona, Navarra.</p>
-      </div>
-      <div>
-        <p class="foot-h">Servicios</p>
-        <ul>
-          <li><a href="mantenimiento.html">Mantenimiento y reparación</a></li>
-          <li><a href="calibracion.html">Cualificación y calibración</a></li>
-          <li><a href="fabricantes.html">SAT para fabricantes</a></li>
-          <li><a href="equipos.html">Equipos atendidos</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="foot-h">SERTES</p>
-        <ul>
-          <li><a href="sertes.html">Sobre SERTES</a></li>
-          <li><a href="contacto.html">Solicitar asistencia</a></li>
-          <li><a href="https://www.linkedin.com/company/sertes-servicio-t%C3%A9cnico-especializado/" target="_blank" rel="noopener">LinkedIn</a></li>
-        </ul>
-      </div>
-      <div>
-        <p class="foot-h">Contacto</p>
-        <ul>
-          <li><a href="tel:{TEL}">{TEL_TXT}</a></li>
-          <li><a href="mailto:sertes@sertes.es">sertes@sertes.es</a></li>
-          <li><a href="https://wa.me/34603082442" target="_blank" rel="noopener">WhatsApp</a></li>
-        </ul>
-      </div>
-    </div>
     <div class="foot-bottom">
-      <span>© <span class="year">2026</span> SERTES · Servicio Técnico Especializado</span>
+      <span><span class="brand">SERTES<i></i></span>&nbsp;&nbsp; © <span class="year">2026</span> · Servicio Técnico Especializado · Pamplona, Navarra</span>
       <nav aria-label="Legal">
+        <a href="https://www.linkedin.com/company/sertes-servicio-t%C3%A9cnico-especializado/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="aviso-legal.html">Aviso legal</a>
         <a href="privacidad.html">Política de privacidad</a>
         <a href="cookies.html">Política de cookies</a>
