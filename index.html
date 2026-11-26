@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-tema="hibrido" data-color="cobalto" data-marca="punto">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -226,13 +226,6 @@ button,input,textarea{font:inherit}
 [data-tema="hibrido"] .hero :focus-visible{outline-color:var(--blue)}
 @media (max-width:720px){[data-tema="claro"] .gear-list button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:none}}
 
-/* Barra de vista previa (solo para la demostración; se quita en la web final) */
-.demo{position:fixed;left:50%;bottom:12px;transform:translateX(-50%);z-index:30;width:max-content;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 12px;align-items:center;max-width:calc(100vw - 24px);padding:9px 14px;background:#fff;color:#0c1d30;border:1px solid #c4ced8;border-radius:6px;box-shadow:0 8px 28px rgba(0,0,0,.22);font-size:15px}
-.demo span{font-weight:600}
-.demo div{display:flex;border:1px solid #c4ced8;border-radius:4px;overflow:hidden}
-.demo button{background:none;border:0;padding:5px 10px;cursor:pointer;color:#465668;font-size:15px}
-.demo button[aria-pressed="true"]{background:#0c1d30;color:#fff}
-.demo button:focus-visible{outline:3px solid #176fe5;outline-offset:-3px}
 body{padding-bottom:0}
 
 @media (max-width:1000px){
@@ -482,43 +475,10 @@ body{padding-bottom:0}
   </div>
 </footer>
 
-<div class="demo" role="group" aria-label="Vista previa">
-  <span>Tema</span>
-  <div><button data-tema="">Mixto</button><button data-tema="hibrido">Portada clara</button><button data-tema="claro">Claro</button><button data-tema="oscuro">Oscuro</button></div>
-  <span>Color</span>
-  <div><button data-color="">Azul</button><button data-color="cobalto">Cobalto</button><button data-color="turquesa">Turquesa</button></div>
-  <span>Nombre</span>
-  <div><button data-marca="">E en color</button><button data-marca="punto">Punto</button><button data-marca="solo">Liso</button></div>
-  <span>Letra</span>
-  <div><button data-letra="">Barlow</button><button data-letra="archivo">Archivo</button></div>
-</div>
 
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Vista previa de tema y color (demostración). También acepta ?tema=oscuro&color=petroleo
-(function () {
-  const root = document.documentElement, q = new URLSearchParams(location.search), KEYS = ['tema', 'color', 'marca', 'letra'];
-  const get = k => { try { return localStorage.getItem('sertes-' + k); } catch (e) { return null; } };
-  const set = (k, v) => { try { localStorage.setItem('sertes-' + k, v); } catch (e) {} };
-  const st = {};
-  for (const k of KEYS) {
-    const v = q.get(k) ?? get(k) ?? '';
-    st[k] = document.querySelector('.demo [data-' + k + '="' + v + '"]') ? v : '';
-  }
-  function apply() {
-    for (const k of KEYS) {
-      if (st[k]) root.dataset[k] = st[k]; else delete root.dataset[k];
-      document.querySelectorAll('.demo [data-' + k + ']').forEach(b => b.setAttribute('aria-pressed', b.dataset[k] === st[k]));
-    }
-  }
-  document.querySelector('.demo').addEventListener('click', e => {
-    const b = e.target.closest('button'); if (!b) return;
-    const k = KEYS.find(k => k in b.dataset);
-    st[k] = b.dataset[k]; set(k, st[k]); apply();
-  });
-  apply();
-})();
 
 // Menú móvil
 const burger = document.querySelector('.burger'), menu = document.getElementById('menu');
