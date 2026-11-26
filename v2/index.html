@@ -41,27 +41,24 @@
 
 <main id="contenido">
 
-  <!-- 1. Qué es y quién: la persona es el principal argumento de confianza -->
-  <div class="hero2" id="inicio">
+  <!-- 1. Qué es: marca, promesa y acceso directo al contacto -->
+  <div class="hero" id="inicio">
     <div class="wrap">
       <div class="hero-text">
         <h1>Tu laboratorio siempre en marcha, con un único servicio técnico</h1>
-        <p>Mantenimiento, reparación, calibración y cualificación de equipos de laboratorio multimarca en Pamplona y Navarra. Hablas directamente con el técnico que hace el trabajo.</p>
+        <p>Mantenimiento, reparación, calibración y cualificación de equipos de laboratorio multimarca en Pamplona y Navarra.</p>
         <div class="actions">
           <a class="btn btn-blue" href="#contacto">Solicitar asistencia</a>
           <a class="btn btn-line" href="tel:+34603082442">Llamar al 603 082 442</a>
         </div>
-        <ul class="facts">
-          <li><strong>Multimarca</strong>Cualquier fabricante</li>
-          <li><strong>Conforme a norma</strong>ISO, EN y GMP</li>
-          <li><strong>In situ o en taller</strong>Donde se necesite</li>
-          <li><strong>Navarra</strong>Y zonas limítrofes</li>
-        </ul>
       </div>
-      <figure>
-        <div class="portrait"><img src="../img/inigo-sola.webp" width="520" height="782" alt="Iñigo Sola, técnico de SERTES"></div>
-        <figcaption><strong>Iñigo Sola</strong><span>Técnico electrónico de equipos de laboratorio</span></figcaption>
-      </figure>
+      <div class="hero-photo" role="img" aria-label="Laboratorio con equipos de análisis"></div>
+      <ul class="facts">
+        <li><strong>Multimarca</strong>Equipos de cualquier fabricante.</li>
+        <li><strong>Conforme a norma</strong>ISO, EN y GMP, con trazabilidad ENAC.</li>
+        <li><strong>In situ o en taller</strong>En tus instalaciones o en taller.</li>
+        <li><strong>Navarra y alrededores</strong>Sede en Pamplona. Otras zonas, bajo consulta.</li>
+      </ul>
     </div>
   </div>
 
@@ -98,35 +95,43 @@
     </div>
   </section>
 
-  <!-- 3. Sobre qué equipos: una sola lista con norma y trabajos -->
-  <section class="band band-steel" id="equipos" aria-labelledby="equipos-t">
+  <!-- 3. Sobre qué equipos: selector con foto, norma y trabajos -->
+  <section class="band band-dark" id="equipos" aria-labelledby="equipos-t">
     <div class="wrap">
       <div class="intro">
         <h2 id="equipos-t">Equipos atendidos</h2>
-        <p>Servicio multimarca. Si tu equipo no aparece, pregunta: se atienden otros bajo consulta.</p>
+        <p>Servicio multimarca. Elige un tipo de equipo para ver qué incluye.</p>
       </div>
-      <ul class="equip compact">
-        <li><div><h3>Pipetas</h3><p class="code">ISO 8655</p></div><ul class="tags"><li>Calibración y ajuste</li><li>Mantenimiento</li><li>Informes</li></ul></li>
-        <li><div><h3>Cabinas de bioseguridad</h3><p class="code">EN 12469</p></div><ul class="tags"><li>Cualificación</li><li>Cambio de filtros</li><li>Informes</li></ul></li>
-        <li><div><h3>Cabinas de flujo laminar</h3><p class="code">ISO 14644</p></div><ul class="tags"><li>Cualificación</li><li>Cambio de filtros</li><li>Informes</li></ul></li>
-        <li><div><h3>Extracción</h3><p class="code">EN 14175</p></div><ul class="tags"><li>Vitrinas de extracción</li><li>Mesas de tallado</li><li>Informes</li></ul></li>
-        <li><div><h3>Autoclaves</h3></div><ul class="tags"><li>Reparación</li><li>Mantenimiento</li><li>Cualificación</li></ul></li>
-        <li><div><h3>Frío</h3></div><ul class="tags"><li>Ultracongeladores</li><li>Frigoríficos</li><li>Liofilizadores</li><li>Cualificación</li></ul></li>
-        <li><div><h3>Calor</h3></div><ul class="tags"><li>Incubadores</li><li>Estufas</li><li>Placas calefactoras</li><li>Cualificación</li></ul></li>
-        <li><div><h3>Equipos de análisis</h3></div><ul class="tags"><li>Destiladores</li><li>Digestores</li><li>Analizadores</li></ul></li>
-        <li><div><h3>Equipos de agua</h3></div><ul class="tags"><li>Purificación</li><li>Desionización</li><li>Filtros y consumibles</li></ul></li>
-        <li><div><h3>Otros equipos</h3></div><ul class="tags"><li>Centrífugas</li><li>Agitadores</li><li>Balanzas</li><li>Microscopios</li></ul></li>
-      </ul>
+      <div class="gear-grid">
+        <div class="gear-list" role="tablist" aria-label="Tipos de equipo" aria-orientation="vertical">
+          <button role="tab" data-img="pipetas-5-4-scaled.jpg" data-l="ISO 8655|Calibración y ajuste|Mantenimiento|Informes">Pipetas<span>ISO 8655</span></button>
+          <button role="tab" data-img="cabina-bioseguridad-2-5-4-scaled.jpg" data-l="EN 12469|Cualificación|Cambio de filtros|Informes">Cabinas de bioseguridad<span>EN 12469</span></button>
+          <button role="tab" data-img="laminar-flow-cabinet-5-4.jpg" data-l="ISO 14644|Cualificación|Cambio de filtros|Informes">Cabinas de flujo laminar<span>ISO 14644</span></button>
+          <button role="tab" data-img="vitrina-extractora-5-4.png" data-l="EN 14175|Vitrinas de extracción|Mesas de tallado|Informes">Extracción<span>EN 14175</span></button>
+          <button role="tab" data-img="destilador-5-4.jpg" data-l="Destiladores|Digestores|Analizadores">Equipos de análisis</button>
+          <button role="tab" data-img="autoclave-5-4-scaled.jpg" data-l="Reparación|Mantenimiento|Cualificación">Autoclaves</button>
+          <button role="tab" data-img="Ultracongelador-de-laboratorio-a-5-4.png" data-l="Ultracongeladores|Frigoríficos|Liofilizadores|Cualificación">Frío</button>
+          <button role="tab" data-img="incubador-5-4-scaled.jpg" data-l="Incubadores|Estufas|Placas calefactoras|Cualificación">Calor</button>
+          <button role="tab" data-img="equipo-agua-5-4-scaled.jpg" data-l="Purificación|Desionización|Filtros y consumibles|Mantenimiento">Equipos de agua</button>
+          <button role="tab" data-img="centrifuga-5-4-scaled.jpg" data-l="Centrífugas|Agitadores|Balanzas|Microscopios">Otros equipos</button>
+        </div>
+        <div class="viewer" role="tabpanel" aria-live="polite">
+          <div class="viewer-frame" id="frame"></div>
+          <h3 id="viewer-title"></h3>
+          <ul class="viewer-tags" id="viewer-tags"></ul>
+        </div>
+      </div>
+      <p class="gear-note">¿No aparece tu equipo? Se atienden otros bajo consulta. <a class="more" href="#contacto">Consultar un equipo</a></p>
     </div>
   </section>
 
-  <!-- 4. Por qué fiarse: la historia y cómo trabaja, una sola vez -->
+  <!-- 4. Por qué fiarse: origen y forma de trabajar -->
   <section class="band" id="sertes" aria-labelledby="sertes-t">
     <div class="wrap about">
       <div>
         <h2 id="sertes-t">Un servicio técnico de confianza</h2>
-        <p>Tras dos años y medio como responsable del SAT de un fabricante y distribuidor de referencia del sector, Iñigo Sola conocía de primera mano los problemas de los laboratorios: equipos fuera de garantía sin nadie que los repare, calibraciones pendientes antes de una auditoría y hilos de correos que no resuelven nada.</p>
-        <p>SERTES nace para resolverlos, con un trato directo y cercano y el mismo técnico siguiendo cada intervención al detalle.</p>
+        <p>SERTES nace de la experiencia al frente del SAT de un fabricante y distribuidor de referencia del sector, y de conocer de primera mano los problemas de los laboratorios: equipos fuera de garantía sin nadie que los repare, calibraciones pendientes antes de una auditoría y hilos de correos que no resuelven nada.</p>
+        <p>Por eso trabaja con un único contacto, trato directo y seguimiento al detalle de cada intervención.</p>
       </div>
       <dl class="spec">
         <div><dt>Honestidad</dt><dd>Relación cercana y de confianza.</dd></div>
