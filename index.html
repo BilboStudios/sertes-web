@@ -6,7 +6,7 @@
 <title>SERTES | Servicio técnico para laboratorios en Navarra</title>
 <meta name="description" content="Mantenimiento, reparación, calibración y cualificación de equipos de laboratorio multimarca en Pamplona y Navarra.">
 <meta name="robots" content="noindex">
-<link rel="icon" href="https://sertes.es/wp-content/uploads/2026/11/Logo-SERTES-IMG-transparente-PNG.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@
   --ink:#0c1d30;       /* texto principal */
   --text:#465668;      /* texto secundario */
   --blue:#176fe5;      /* azul del logotipo: acciones y enlaces */
-  --orange:#f39c12;    /* naranja del logotipo: solo el indicador de selección */
+  --sky:#6aa8ff;       /* azul claro del logotipo en negativo: realces sobre fondo oscuro */
   --rule:#d5dde5;
   --rule-dark:rgba(255,255,255,.18);
   --on-dark:#c9d6e3;
@@ -44,7 +44,9 @@ button,input,textarea{font:inherit}
 .band{padding-block:112px}
 .intro{max-width:760px;margin-bottom:64px}
 .intro p{margin-top:20px;font-size:20px;max-width:620px}
-:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.hero :focus-visible,.gear :focus-visible,.contact :focus-visible,.foot :focus-visible{outline-color:var(--sky)}
+.form :focus-visible{outline-color:var(--blue)}
 
 .btn{display:inline-block;padding:15px 28px;font-weight:600;font-size:17px;border-radius:4px;border:1px solid transparent;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s}
 .btn-blue{background:var(--blue);color:#fff}
@@ -57,7 +59,9 @@ button,input,textarea{font:inherit}
 /* Cabecera */
 .site{position:sticky;top:0;z-index:20;background:var(--white);border-bottom:1px solid var(--rule)}
 .site .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
-.logo img{height:44px;width:auto}
+.logo{display:grid;gap:5px;text-decoration:none}
+.logo img{height:30px;width:auto}
+.logo span{font-size:13px;font-weight:500;line-height:1;color:var(--text);letter-spacing:.01em}
 .menu{display:flex;align-items:center;gap:34px}
 .menu a{font-weight:500;font-size:17px;color:var(--ink);text-decoration:none}
 .menu a:not(.btn):hover{color:var(--blue);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
@@ -105,7 +109,7 @@ button,input,textarea{font:inherit}
 .gear-list button{display:flex;justify-content:space-between;align-items:baseline;gap:20px;width:100%;padding:15px 16px;background:none;border:0;border-bottom:1px solid var(--rule-dark);text-align:left;cursor:pointer;color:var(--on-dark);font-family:var(--display);font-weight:500;font-size:clamp(22px,2vw,28px);line-height:1.15;transition:color .15s,background .15s}
 .gear-list button span{font-family:var(--body);font-size:15px;font-weight:400;color:#8fa3b8}
 .gear-list button:hover{color:#fff}
-.gear-list button[aria-selected="true"]{color:#fff;background:rgba(255,255,255,.07);box-shadow:inset 4px 0 0 var(--orange)}
+.gear-list button[aria-selected="true"]{color:#fff;background:rgba(255,255,255,.07);box-shadow:inset 4px 0 0 var(--sky)}
 .gear-list button[aria-selected="true"] span{color:#fff}
 .gear-list button:focus-visible{outline-offset:-3px}
 .viewer{position:sticky;top:108px}
@@ -154,7 +158,7 @@ button,input,textarea{font:inherit}
 
 /* Pie */
 .foot{background:var(--navy);color:var(--on-dark);font-size:16px}
-.foot .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px 32px;padding-block:28px 36px;border-top:1px solid var(--rule-dark)}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px 32px;padding-block:28px 36px;border-top:1px solid var(--rule-dark)}
 .foot nav{display:flex;flex-wrap:wrap;gap:8px 28px}
 .foot a{text-underline-offset:4px}
 .foot a:hover{color:#fff}
@@ -199,7 +203,8 @@ button,input,textarea{font:inherit}
 <header class="site">
   <div class="wrap">
     <a class="logo" href="#inicio" aria-label="SERTES, inicio">
-      <img src="https://sertes.es/wp-content/uploads/2026/11/TOP-Logo-Completo-crop.png" alt="SERTES, servicio técnico especializado">
+      <img src="logo/sertes-logo.svg" alt="SERTES" width="140" height="34">
+      <span>Servicio técnico especializado</span>
     </a>
     <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
     <nav class="menu" id="menu">
@@ -396,6 +401,7 @@ button,input,textarea{font:inherit}
 
 <footer class="foot">
   <div class="wrap">
+    <img src="logo/sertes-logo-blanco.svg" alt="SERTES" width="107" height="26">
     <span>© <span id="year">2026</span> SERTES. Servicio técnico especializado. Pamplona, Navarra.</span>
     <nav aria-label="Legal">
       <a href="https://sertes.es/aviso-legal/">Aviso legal</a>
