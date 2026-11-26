@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="es" data-tema="hibrido" data-color="cobalto" data-marca="punto" data-letra="archivo">
+<html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SERTES | Servicio técnico para laboratorios en Navarra</title>
 <meta name="description" content="Mantenimiento, reparación, calibración y cualificación de equipos de laboratorio multimarca en Pamplona y Navarra.">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b1548">
 <link rel="icon" type="image/png" href="icono.png">
 <link rel="apple-touch-icon" href="icono-180.png">
 <meta property="og:type" content="website">
@@ -18,482 +19,137 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..112,400..700&family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600&display=swap" rel="stylesheet">
-<style>
-/* Concepto: todo alineado a la izquierda sobre una sola retícula; una única familia
-   (Barlow, de rotulación técnica) en dos anchos; el color de marca solo en acciones.
-   La pieza protagonista es el selector de equipos; el resto se mantiene sobrio. */
-:root{
-  --white:#ffffff;
-  --steel:#eef2f5;     /* gris frío de encimera de laboratorio */
-  --navy:#0b2440;      /* azul marino de la marca, fondos oscuros */
-  --ink:#0c1d30;       /* texto principal */
-  --text:#465668;      /* texto secundario */
-  --blue:#176fe5;      /* azul del logotipo: acciones y enlaces */
-  --sky:#6aa8ff;       /* azul claro del logotipo en negativo: realces sobre fondo oscuro */
-  --rule:#d5dde5;
-  --blue-h:#0f58bd;    /* azul al pasar el ratón */
-  --tint:#dbe9ff;
-  --panel:#12335a;
-  --deep:#06131f;      /* fondo de página en tema oscuro */
-  --navy-rgb:11,36,64;
-  --link:var(--blue);
-  --on-blue:#ffffff;   /* texto sobre el color de acento */
-  --rule-dark:rgba(255,255,255,.18);
-  --on-dark:#c9d6e3;
-  --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
-  --body:"Barlow",Arial,Helvetica,sans-serif;
-  --wrap:1200px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:84px}
-body{margin:0;font-family:var(--body);font-size:18px;line-height:1.55;color:var(--text);background:var(--white);-webkit-font-smoothing:antialiased}
-img{max-width:100%;display:block}
-a{color:inherit}
-h1,h2,h3{font-family:var(--display);font-weight:600;color:var(--ink);margin:0;line-height:1.05;letter-spacing:-.01em;text-wrap:balance}
-h2{font-size:clamp(34px,4.4vw,58px)}
-h3{font-size:clamp(24px,2.3vw,32px);line-height:1.12}
-p,ul,dl,dd{margin:0}
-ul{padding:0;list-style:none}
-button,input,textarea{font:inherit}
-.wrap{max-width:var(--wrap);margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
-.band{padding-block:112px}
-.intro{max-width:760px;margin-bottom:64px}
-.intro p{margin-top:20px;font-size:20px;max-width:620px}
-:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-.hero :focus-visible,.gear :focus-visible,.contact :focus-visible,.foot :focus-visible{outline-color:var(--sky)}
-.form :focus-visible{outline-color:var(--blue)}
-
-.btn{display:inline-block;padding:15px 28px;font-weight:600;font-size:17px;border-radius:4px;border:1px solid transparent;text-decoration:none;cursor:pointer;transition:background .15s,border-color .15s}
-.btn-blue{background:var(--blue);color:var(--on-blue)}
-.btn-blue:hover{background:var(--blue-h)}
-.btn-white{background:#fff;color:var(--ink)}
-.btn-white:hover{background:var(--tint)}
-.btn-outline{border-color:rgba(255,255,255,.45);color:#fff}
-.btn-outline:hover{border-color:#fff;background:rgba(255,255,255,.08)}
-
-/* Cabecera */
-.site{position:sticky;top:0;z-index:20;background:var(--white);border-bottom:1px solid var(--rule)}
-.site .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
-.logo{display:grid;gap:5px;text-decoration:none}
-.brand{display:inline-flex;align-items:baseline;font-family:var(--display);font-weight:600;font-size:34px;line-height:1;letter-spacing:.06em;color:var(--ink)}
-.brand b{font-weight:inherit;color:var(--link)}
-.brand i{display:none;width:.16em;height:.16em;background:var(--link);margin-left:.1em}
-[data-marca="punto"] .brand b,[data-marca="solo"] .brand b{color:inherit}
-[data-marca="punto"] .brand i{display:block}
-.foot .brand{font-size:24px;color:#fff}
-.foot .brand b,.foot .brand i{--link:var(--sky)}
-.menu{display:flex;align-items:center;gap:34px}
-.menu a{font-weight:500;font-size:17px;color:var(--ink);text-decoration:none}
-.menu a:not(.btn):hover{color:var(--link);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
-.menu .btn{padding:11px 22px;color:var(--on-blue)}
-.burger{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--ink)}
-.burger span{display:block;width:26px;height:2px;background:currentColor;margin:6px 0}
-
-/* Inicio */
-.hero{position:relative;background:var(--navy);color:var(--on-dark);isolation:isolate;overflow:hidden}
-.hero-photo{position:absolute;inset:0 0 0 40%;z-index:-2;background:url('https://sertes.es/wp-content/uploads/2026/11/Laboratorio-completo-flipped-scaled.jpg') center/cover;opacity:.6;filter:grayscale(1);mix-blend-mode:luminosity;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 50%);mask-image:linear-gradient(90deg,transparent,#000 50%)}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--navy-rgb),.25),rgba(var(--navy-rgb),.9))}
-.hero-text{padding-block:112px 88px;max-width:880px}
-.hero h1{color:#fff;font-size:clamp(42px,6.4vw,88px);line-height:1}
-.hero-text p{font-size:clamp(19px,1.7vw,23px);max-width:600px;margin-block:28px 40px;color:#e2eaf2}
-.actions{display:flex;flex-wrap:wrap;gap:14px}
-.points{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--rule-dark)}
-.points li{padding:28px 32px 40px 0}
-.points li + li{padding-left:32px;border-left:1px solid var(--rule-dark)}
-.points strong{display:block;font-family:var(--display);font-weight:600;font-size:24px;color:#fff;margin-bottom:6px}
-
-/* Normas */
-.norms{background:var(--steel)}
-.norms .wrap{display:grid;grid-template-columns:1.25fr repeat(4,1fr);gap:32px;padding-block:36px;align-items:start}
-.norms p{color:var(--ink);font-weight:500;max-width:260px}
-.norms dl{display:contents}
-.norms dt{font-family:var(--display);font-weight:600;font-size:28px;line-height:1.1;color:var(--ink)}
-.norms dd{font-size:16px;margin-top:4px}
-
-/* Servicios */
-.service{display:grid;grid-template-columns:1fr 1.3fr;gap:28px 64px;padding-block:36px 44px;border-top:2px solid var(--ink);align-items:start}
-.service h3{font-size:clamp(28px,3.1vw,42px);line-height:1.05}
-.service h3 + p{margin-top:14px;font-size:20px;color:var(--ink);font-weight:500;max-width:420px}
-.service a{display:inline-block;margin-top:24px;color:var(--link);font-weight:600;text-underline-offset:5px}
-.service a:hover{text-decoration-thickness:2px}
-.spec{background:var(--steel);border-radius:4px;padding:6px 28px}
-.spec div{display:grid;grid-template-columns:170px 1fr;gap:8px 24px;padding:18px 0}
-.spec div + div{border-top:1px solid var(--rule)}
-.spec dt{color:var(--ink);font-weight:600}
-
-/* Equipos */
-.gear{background:var(--navy);color:var(--on-dark)}
-.gear h2{color:#fff}
-.gear-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start}
-.gear-list{border-top:1px solid var(--rule-dark)}
-.gear-list button{display:flex;justify-content:space-between;align-items:baseline;gap:20px;width:100%;padding:15px 16px;background:none;border:0;border-bottom:1px solid var(--rule-dark);text-align:left;cursor:pointer;color:var(--on-dark);font-family:var(--display);font-weight:500;font-size:clamp(22px,2vw,28px);line-height:1.15;transition:color .15s,background .15s}
-.gear-list button span{font-family:var(--body);font-size:15px;font-weight:400;color:#8fa3b8}
-.gear-list button:hover{color:#fff}
-.gear-list button[aria-selected="true"]{color:#fff;background:rgba(255,255,255,.07);box-shadow:inset 4px 0 0 var(--sky)}
-.gear-list button[aria-selected="true"] span{color:#fff}
-.gear-list button:focus-visible{outline-offset:-3px}
-.viewer{position:sticky;top:108px}
-.viewer-frame{position:relative;aspect-ratio:5/4;max-width:100%;background:var(--panel);border-radius:4px;overflow:hidden}
-.viewer-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s}
-.viewer-frame img.on{opacity:1}
-.viewer h3{color:#fff;margin-top:22px}
-.viewer p{margin-top:6px}
-
-/* Proceso */
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
-.steps li{border-top:2px solid var(--ink);padding-top:20px}
-.steps .num{display:block;font-family:var(--display);font-weight:600;font-size:64px;line-height:1;color:var(--link);margin-bottom:18px}
-.steps p{margin-top:10px;max-width:340px}
-.process .btn{margin-top:56px}
-
-/* Cobertura */
-.cover{background:var(--steel)}
-.cover-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.cover ul{margin-top:36px;border-top:1px solid var(--rule)}
-.cover li{padding:18px 0;border-bottom:1px solid var(--rule);color:var(--ink);font-weight:500;font-size:20px}
-.cover img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
-
-/* Contacto */
-.contact{background:var(--navy);color:var(--on-dark)}
-.contact h2{color:#fff}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
-.contact-grid > div > p{margin-top:20px;font-size:20px;max-width:460px}
-.channels{margin-top:44px;border-top:1px solid var(--rule-dark)}
-.channels div{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:baseline;padding:18px 0;border-bottom:1px solid var(--rule-dark)}
-.channels dt{font-size:16px}
-.channels dd a{font-family:var(--display);font-weight:500;font-size:clamp(22px,2.1vw,28px);color:#fff;text-decoration:none;overflow-wrap:anywhere}
-.channels dd a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px}
-.form{background:var(--white);color:var(--text);border-radius:4px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:22px 20px}
-.field{display:grid;gap:6px;min-width:0}
-.field.wide,.form .note,.form .consent,.form .btn{grid-column:1/-1}
-.field label{font-size:16px;font-weight:500;color:var(--ink)}
-.field input,.field textarea{width:100%;padding:11px 12px;color:var(--ink);background:var(--white);border:1px solid #aab7c4;border-radius:4px}
-.field input:focus,.field textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px color-mix(in srgb,var(--blue) 25%,transparent)}
-.field textarea{min-height:130px;resize:vertical}
-.form .note{font-size:16px}
-.consent{display:flex;gap:10px;align-items:flex-start;font-size:16px}
-.consent input{width:18px;height:18px;margin-top:4px;accent-color:var(--blue)}
-.consent a{color:var(--link)}
-.form .btn{justify-self:start}
-
-/* Pie */
-.foot{background:var(--navy);color:var(--on-dark);font-size:16px}
-.foot .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px 32px;padding-block:28px 36px;border-top:1px solid var(--rule-dark)}
-.foot nav{display:flex;flex-wrap:wrap;gap:8px 28px}
-.foot a{text-underline-offset:4px}
-.foot a:hover{color:#fff}
-
-
-/* ---------- Variantes de vista previa: color y tema ---------- */
-[data-color="cobalto"]{--navy:#0b1548;--ink:#0c1440;--blue:#2146e6;--blue-h:#1634b8;--sky:#93a5ff;--tint:#dfe5ff;--panel:#1b2b6a;--deep:#060a23;--navy-rgb:11,21,72;--steel:#eef0f9;--rule:#d5d9ec;--on-dark:#cdd3ee}
-[data-color="turquesa"]{--navy:#0c2b33;--ink:#0c2b33;--text:#47595f;--blue:#1bd0bf;--blue-h:#12b5a6;--on-blue:#05262b;--link:#087f78;--sky:#55e3d5;--tint:#d3f3ef;--panel:#17404b;--deep:#07181c;--navy-rgb:12,43,51;--steel:#edf3f3;--rule:#d3dedf;--on-dark:#c7d8da}
-
-/* Letra: Archivo en toda la web */
-[data-letra="archivo"]{--display:"Archivo",Arial,sans-serif;--body:"Archivo",Arial,sans-serif}
-[data-letra="archivo"] h1,[data-letra="archivo"] h2,[data-letra="archivo"] h3{letter-spacing:-.02em;line-height:1.08}
-[data-letra="archivo"] .hero h1{font-size:clamp(36px,5vw,68px)}
-[data-letra="archivo"] h2{font-size:clamp(30px,3.5vw,46px)}
-[data-letra="archivo"] h3{font-size:clamp(21px,1.9vw,26px)}
-[data-letra="archivo"] body{font-size:17px}
-[data-letra="archivo"] .service h3{font-size:clamp(24px,2.5vw,34px)}
-[data-letra="archivo"] .brand{font-stretch:112%;font-weight:700;font-size:27px;letter-spacing:.03em}
-[data-letra="archivo"] .foot .brand{font-size:20px}
-[data-letra="archivo"] .gear-list button{font-size:clamp(19px,1.7vw,23px)}
-[data-letra="archivo"] .points strong,[data-letra="archivo"] .norms dt{font-size:21px}
-[data-letra="archivo"] .channels dd a{font-size:clamp(19px,1.8vw,24px)}
-
-/* Oscuro: toda la página sobre fondo oscuro */
-[data-tema="oscuro"]{color-scheme:dark;--white:var(--deep);--steel:var(--navy);--ink:#ffffff;--text:var(--on-dark);--rule:var(--rule-dark);--link:var(--sky)}
-[data-tema="oscuro"] .btn-white{color:var(--navy)}
-[data-tema="oscuro"] :focus-visible{outline-color:var(--sky)}
-[data-tema="oscuro"] .field input,[data-tema="oscuro"] .field textarea{border-color:rgba(255,255,255,.35)}
-
-/* Claro: toda la página sobre fondo claro; solo el pie queda oscuro */
-:is([data-tema="claro"],[data-tema="hibrido"]) .hero{background:var(--steel);color:var(--text)}
-:is([data-tema="claro"],[data-tema="hibrido"]) .hero-photo{inset:0 0 0 38%;opacity:1;filter:none;mix-blend-mode:normal;-webkit-mask-image:linear-gradient(90deg,transparent 4%,#000 46%);mask-image:linear-gradient(90deg,transparent 4%,#000 46%)}
-:is([data-tema="claro"],[data-tema="hibrido"]) .hero::after{background:linear-gradient(0deg,var(--steel) 0 172px,transparent 172px)}
-:is([data-tema="claro"],[data-tema="hibrido"]) .hero h1,:is([data-tema="claro"],[data-tema="hibrido"]) .points strong{color:var(--ink)}
-:is([data-tema="claro"],[data-tema="hibrido"]) .hero-text p{color:var(--text)}
-:is([data-tema="claro"],[data-tema="hibrido"]) .points,:is([data-tema="claro"],[data-tema="hibrido"]) .points li + li{border-color:var(--rule)}
-:is([data-tema="claro"],[data-tema="hibrido"]) .hero .btn-white{background:var(--blue);color:var(--on-blue)}
-:is([data-tema="claro"],[data-tema="hibrido"]) .hero .btn-white:hover{background:var(--blue-h)}
-:is([data-tema="claro"],[data-tema="hibrido"]) .hero .btn-outline{border-color:var(--ink);color:var(--ink)}
-:is([data-tema="claro"],[data-tema="hibrido"]) .hero .btn-outline:hover{background:rgba(0,0,0,.05)}
-[data-tema="claro"] .gear{background:var(--white);color:var(--text);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-[data-tema="claro"] .gear h2,[data-tema="claro"] .viewer h3,[data-tema="claro"] .contact h2{color:var(--ink)}
-[data-tema="claro"] .gear-list,[data-tema="claro"] .gear-list button,[data-tema="claro"] .channels,[data-tema="claro"] .channels div{border-color:var(--rule)}
-[data-tema="claro"] .gear-list button{color:var(--text)}
-[data-tema="claro"] .gear-list button span{color:var(--text)}
-[data-tema="claro"] .gear-list button:hover{color:var(--ink)}
-[data-tema="claro"] .gear-list button[aria-selected="true"]{color:var(--ink);background:var(--steel);box-shadow:inset 4px 0 0 var(--blue)}
-[data-tema="claro"] .gear-list button[aria-selected="true"] span{color:var(--ink)}
-[data-tema="claro"] .viewer-frame{background:var(--steel)}
-[data-tema="claro"] .contact{background:var(--steel);color:var(--text)}
-[data-tema="claro"] .channels dd a{color:var(--ink)}
-[data-tema="claro"] .hero :focus-visible,[data-tema="claro"] .gear :focus-visible,[data-tema="claro"] .contact :focus-visible{outline-color:var(--blue)}
-[data-tema="hibrido"] .hero :focus-visible{outline-color:var(--blue)}
-body{padding-bottom:0}
-
-/* ---------- Tableta en horizontal y portátil pequeño: el titular no pisa la foto ---------- */
-@media (min-width:1001px) and (max-width:1240px){
-  .hero-text{max-width:54%;padding-block:88px 72px}
-  :is([data-tema="claro"],[data-tema="hibrido"]) .hero-photo{inset:0 0 0 50%}
-  .gear-grid,.contact-grid,.cover-grid{gap:48px}
-}
-
-/* ---------- Tableta (hasta 1000 px) ---------- */
-@media (max-width:1000px){
-  .band{padding-block:80px}
-  .intro{margin-bottom:48px}
-  .menu{gap:24px}
-  /* La foto de portada deja de ser fondo y pasa a ser una pieza entre el texto y los tres puntos */
-  .hero::after{display:none}
-  .hero-text{padding-block:72px 48px;max-width:680px}
-  .hero .wrap .hero-photo{position:static;z-index:auto;opacity:1;filter:none;mix-blend-mode:normal;-webkit-mask-image:none;mask-image:none;aspect-ratio:21/9;border-radius:4px;margin-bottom:12px}
-  .points{border-top:0}
-  .points li{padding:24px 24px 44px 0}
-  .points li + li{padding-left:24px}
-  .norms .wrap{grid-template-columns:repeat(4,1fr);gap:28px 24px}
-  .norms p{grid-column:1/-1;max-width:none}
-  .service{grid-template-columns:1fr 1.2fr;gap:24px 36px}
-  .spec{padding:4px 22px}
-  .spec div{grid-template-columns:1fr;gap:2px;padding:14px 0}
-  .gear-grid{grid-template-columns:1fr 1.1fr;gap:36px}
-  .gear-list button{padding:13px 12px;gap:12px}
-  .viewer{top:100px}
-  .cover-grid{gap:40px}
-  .cover ul{margin-top:28px}
-  .contact-grid{grid-template-columns:1fr;gap:44px}
-  .contact-grid > div > p{max-width:560px}
-  .channels{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;margin-top:36px}
-  .channels div{grid-template-columns:1fr;gap:2px;padding:16px 0}
-  .steps{gap:28px}
-}
-
-/* ---------- Móvil (hasta 760 px) ---------- */
-@media (max-width:760px){
-  html{scroll-padding-top:72px}
-  body,[data-letra="archivo"] body{font-size:17px}
-  .wrap{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
-  .band{padding-block:60px}
-  .intro{margin-bottom:36px}
-  .intro p,.contact-grid > div > p{font-size:18px;margin-top:14px}
-
-  .site .wrap{height:64px}
-  .burger{display:grid;place-items:center;width:44px;height:44px;margin-right:-9px;padding:0}
-  .burger span{margin:0;grid-area:1/1;transition:transform .2s}
-  .burger span:first-child{transform:translateY(-4px)}
-  .burger span:last-child{transform:translateY(4px)}
-  .burger[aria-expanded="true"] span:first-child{transform:rotate(45deg)}
-  .burger[aria-expanded="true"] span:last-child{transform:rotate(-45deg)}
-  .menu{display:none;position:absolute;top:64px;left:0;right:0;max-height:calc(100dvh - 64px);overflow-y:auto;background:var(--white);border-bottom:1px solid var(--rule);box-shadow:0 18px 30px rgba(var(--navy-rgb),.14);flex-direction:column;align-items:stretch;gap:0;padding:4px max(20px,env(safe-area-inset-right,0px)) 24px max(20px,env(safe-area-inset-left,0px))}
-  .menu.open{display:flex}
-  .menu a:not(.btn){padding:16px 0;font-size:19px;border-bottom:1px solid var(--rule)}
-  .menu .btn{margin-top:20px;padding:15px 22px;text-align:center}
-
-  .hero-text{padding-block:44px 36px}
-  .hero-text p{margin-block:18px 28px}
-  .hero .wrap .hero-photo{aspect-ratio:16/10;margin-bottom:4px}
-  .points{grid-template-columns:1fr}
-  .points li,.points li + li{padding:20px 0;border-left:0}
-  .points li + li{border-top:1px solid var(--rule)}
-  .points li:last-child{padding-bottom:44px}
-
-  .norms .wrap{grid-template-columns:1fr 1fr;gap:22px 20px;padding-block:32px}
-  .service{grid-template-columns:1fr;gap:22px;padding-block:28px 36px}
-  .service h3 + p{font-size:18px;margin-top:10px}
-  .service a{margin-top:16px}
-  .spec{padding:2px 18px}
-
-  /* Equipos: las opciones van arriba, en fichas, y la foto cambia justo debajo */
-  .gear-grid{grid-template-columns:1fr;gap:24px}
-  .gear-list{border:0;display:flex;flex-wrap:wrap;gap:8px}
-  .gear-list button{width:auto;min-height:44px;padding:9px 14px;border:1px solid var(--rule-dark);border-radius:4px;font-family:var(--body);font-size:16px}
-  [data-letra="archivo"] .gear-list button{font-size:16px}
-  .gear-list button span{display:none}
-  .gear-list button[aria-selected="true"]{background:#fff;color:var(--ink);border-color:#fff;box-shadow:none}
-  [data-tema="claro"] .gear-list button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .viewer{position:static}
-  .viewer h3{margin-top:16px}
-  .viewer-text{min-height:92px}
-
-  .steps{grid-template-columns:1fr;gap:28px}
-  .steps .num{font-size:44px;margin-bottom:12px}
-  .steps li{padding-top:16px}
-  .process .btn{margin-top:40px}
-
-  .cover-grid{grid-template-columns:1fr;gap:32px}
-  .cover li{font-size:18px;padding:15px 0}
-  .cover img{aspect-ratio:3/2}
-
-  .contact-grid{gap:36px}
-  .channels{grid-template-columns:1fr;margin-top:28px}
-  .channels div{grid-template-columns:96px 1fr;gap:12px;padding:15px 0}
-  .form{grid-template-columns:1fr;gap:18px;padding:24px 18px}
-  .field input,.field textarea{padding:12px;font-size:17px}
-  .consent input{width:22px;height:22px;margin-top:1px;flex:none}
-
-  .foot .wrap{flex-direction:column;align-items:flex-start;gap:14px;padding-block:28px 32px}
-  .foot nav{gap:4px 22px}
-  .foot nav a{padding-block:8px}
-}
-
-/* ---------- Móvil estrecho: botones a todo el ancho ---------- */
-@media (max-width:480px){
-  .actions{flex-direction:column}
-  .actions .btn,.process .btn,.form .btn{width:100%;text-align:center;justify-self:stretch}
-}
-
-/* ---------- Móvil en horizontal: la cabecera y el visor no se quedan fijos ---------- */
-@media (max-height:520px){
-  .site{position:static}
-  html{scroll-padding-top:12px}
-  .viewer{position:static}
-  .menu{max-height:none}
-}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
-</style>
+<link rel="preload" href="fuentes/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
+<a class="skip" href="#contenido">Saltar al contenido</a>
 <header class="site">
   <div class="wrap">
-    <a class="logo" href="#inicio" aria-label="SERTES, inicio">
-      <span class="brand">S<b>E</b>RT<b>E</b>S<i></i></span>
-    </a>
+    <a class="logo" href="index.html" aria-label="SERTES, inicio"><span class="brand">SERTES<i></i></span></a>
     <button class="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
-    <nav class="menu" id="menu">
-      <a href="#servicios">Servicios</a>
-      <a href="#equipos">Equipos</a>
-      <a href="#cobertura">Cobertura</a>
-      <a href="https://sertes.es/sertes/">Sertes</a>
-      <a class="btn btn-blue" href="#contacto">Contacto</a>
+    <nav class="menu" id="menu" aria-label="Principal">
+      <a href="mantenimiento.html">Mantenimiento</a>
+      <a href="calibracion.html">Calibración</a>
+      <a href="fabricantes.html">Fabricantes</a>
+      <a href="index.html#equipos">Equipos</a>
+      <a href="sertes.html">Sobre SERTES</a>
+      <a class="btn btn-blue" href="contacto.html">Contacto</a>
     </nav>
   </div>
 </header>
 
-<main id="inicio">
-
-  <div class="hero">
+<main id="contenido">
+<div class="hero">
     <div class="wrap">
       <div class="hero-text">
         <h1>Tu laboratorio siempre en marcha, con un único servicio técnico</h1>
         <p>Mantenimiento, reparación, calibración y cualificación de equipos de laboratorio multimarca en Pamplona y Navarra.</p>
         <div class="actions">
-          <a class="btn btn-white" href="#contacto">Solicitar asistencia</a>
-          <a class="btn btn-outline" href="#servicios">Ver servicios</a>
+          <a class="btn btn-blue" href="contacto.html">Solicitar asistencia</a>
+          <a class="btn btn-line" href="tel:+34603082442">Llamar al 603 082 442</a>
         </div>
       </div>
       <div class="hero-photo" role="img" aria-label="Laboratorio con equipos de análisis"></div>
-      <ul class="points">
-        <li><strong>Equipos multimarca</strong>Mantenimiento y reparación de equipos de laboratorio de cualquier fabricante.</li>
-        <li><strong>Conforme a norma</strong>Calibración, cualificación y verificación según normas ISO, EN y GMP.</li>
-        <li><strong>Un único contacto</strong>Atención rápida y adaptada a las necesidades de cada laboratorio.</li>
+      <ul class="facts">
+        <li><strong>Multimarca</strong>Equipos de cualquier fabricante.</li>
+        <li><strong>Conforme a norma</strong>ISO, EN y GMP, con trazabilidad ENAC.</li>
+        <li><strong>In situ o en taller</strong>En tus instalaciones o en taller.</li>
+        <li><strong>Navarra y alrededores</strong>Sede en Pamplona. Otras zonas, bajo consulta.</li>
       </ul>
     </div>
   </div>
 
-  <div class="norms">
-    <div class="wrap">
-      <p>Cada equipo se cualifica y verifica conforme a su norma de referencia.</p>
-      <dl>
-        <div><dt>ISO 8655</dt><dd>Pipetas</dd></div>
-        <div><dt>EN 12469</dt><dd>Cabinas de bioseguridad</dd></div>
-        <div><dt>ISO 14644</dt><dd>Cabinas de flujo laminar</dd></div>
-        <div><dt>EN 14175</dt><dd>Vitrinas de extracción</dd></div>
-      </dl>
-    </div>
-  </div>
-
-  <section class="band" id="servicios">
+  <section class="band" id="servicios" aria-labelledby="servicios-t">
     <div class="wrap">
       <div class="intro">
-        <h2>Todo el soporte técnico del laboratorio, con un solo proveedor</h2>
+        <h2 id="servicios-t">¿Qué necesita tu laboratorio?</h2>
         <p>Del mantenimiento diario a la cualificación certificada, y también como servicio técnico de fabricantes y distribuidores.</p>
       </div>
 
-      <article class="service">
+      <article class="route">
+        <p class="route-q">Un equipo ha fallado o le toca el mantenimiento</p>
         <div>
           <h3>Mantenimiento y reparación</h3>
-          <p>Respuesta rápida para reducir al mínimo los tiempos de parada.</p>
-          <a href="https://sertes.es/servicios/#mantenimiento">Más sobre mantenimiento y reparación</a>
+          <p>Preventivo y correctivo, en tus instalaciones o en taller. Diagnóstico preciso para que el equipo vuelva a funcionar cuanto antes.</p>
+          <a class="more" href="mantenimiento.html">Ver mantenimiento y reparación</a>
         </div>
-        <dl class="spec">
-          <div><dt>Preventivo</dt><dd>Revisiones y sustitución de consumibles: filtros HEPA, juntas, etc.</dd></div>
-          <div><dt>Correctivo</dt><dd>Diagnóstico preciso y reparación.</dd></div>
-          <div><dt>Dónde</dt><dd>In situ o en taller.</dd></div>
-        </dl>
       </article>
 
-      <article class="service">
+      <article class="route">
+        <p class="route-q">Hay que calibrar o cualificar, o se acerca una auditoría</p>
         <div>
           <h3>Cualificación, calibración y verificación</h3>
-          <p>Cumplimiento normativo y rigor técnico.</p>
-          <a href="https://sertes.es/servicios/#calibracion">Más sobre cualificación y calibración</a>
+          <p>IQ/OQ/PQ, calibraciones con patrones trazables a ENAC y verificaciones periódicas según ISO, EN y GMP, con resultados documentados.</p>
+          <a class="more" href="calibracion.html">Ver cualificación y calibración</a>
         </div>
-        <dl class="spec">
-          <div><dt>Normas</dt><dd>Cualificaciones y verificaciones según ISO, EN y GMP.</dd></div>
-          <div><dt>Equipos de medida</dt><dd>Con certificado de calibración.</dd></div>
-          <div><dt>Documentación</dt><dd>Resultados documentados.</dd></div>
-        </dl>
       </article>
 
-      <article class="service">
+      <article class="route">
+        <p class="route-q">Eres fabricante o distribuidor y necesitas técnico en la zona</p>
         <div>
           <h3>SAT para fabricantes y distribuidores</h3>
-          <p>Servicio técnico de confianza en Navarra y la zona norte.</p>
-          <a href="https://sertes.es/servicios/#sat">Más sobre el SAT para fabricantes</a>
+          <p>Instalación, puesta en marcha, diagnóstico, reparación y mantenimiento en Navarra y la zona norte, cuidando de vuestra marca y de vuestros clientes.</p>
+          <a class="more" href="fabricantes.html">Ver el SAT para fabricantes</a>
         </div>
-        <dl class="spec">
-          <div><dt>Diagnóstico</dt><dd>Visitas sin demoras.</dd></div>
-          <div><dt>Reparación</dt><dd>In situ o en taller.</dd></div>
-          <div><dt>Puesta en marcha</dt><dd>Instalación y soporte técnico. Otros servicios, bajo consulta.</dd></div>
-        </dl>
       </article>
     </div>
   </section>
 
-  <section class="band gear" id="equipos">
+  <section class="band band-dark" id="equipos" aria-labelledby="equipos-t">
     <div class="wrap">
       <div class="intro">
-        <h2>Equipos atendidos</h2>
+        <h2 id="equipos-t">Equipos atendidos</h2>
         <p>Servicio multimarca. Elige un tipo de equipo para ver qué incluye.</p>
       </div>
       <div class="gear-grid">
         <div class="gear-list" role="tablist" aria-label="Tipos de equipo" aria-orientation="vertical">
-          <button role="tab" data-img="pipetas-5-4-scaled.jpg" data-d="Calibración, ajuste y mantenimiento según ISO 8655.">Pipetas<span>ISO 8655</span></button>
-          <button role="tab" data-img="cabina-bioseguridad-2-5-4-scaled.jpg" data-d="Cualificación y cambio de filtros según EN 12469.">Cabinas de bioseguridad<span>EN 12469</span></button>
-          <button role="tab" data-img="laminar-flow-cabinet-5-4.jpg" data-d="Cualificación y cambio de filtros según ISO 14644.">Cabinas de flujo laminar<span>ISO 14644</span></button>
-          <button role="tab" data-img="vitrina-extractora-5-4.png" data-d="Vitrinas de gases y mesas de tallado según EN 14175.">Extracción<span>EN 14175</span></button>
-          <button role="tab" data-img="destilador-5-4.jpg" data-d="Destiladores, digestores y analizadores.">Equipos de análisis</button>
-          <button role="tab" data-img="autoclave-5-4-scaled.jpg" data-d="Reparación, mantenimiento y cualificación.">Autoclaves</button>
-          <button role="tab" data-img="Ultracongelador-de-laboratorio-a-5-4.png" data-d="Ultracongeladores, frigoríficos y liofilizadores.">Frío</button>
-          <button role="tab" data-img="incubador-5-4-scaled.jpg" data-d="Incubadores, estufas y placas calefactoras.">Calor</button>
-          <button role="tab" data-img="equipo-agua-5-4-scaled.jpg" data-d="Purificación, desionización y mantenimiento.">Equipos de agua</button>
-          <button role="tab" data-img="centrifuga-5-4-scaled.jpg" data-d="Centrífugas, agitadores, balanzas, microscopios y otros.">Otros equipos</button>
+          <button role="tab" data-img="pipetas-5-4-scaled.jpg" data-l="ISO 8655|Calibración y ajuste|Mantenimiento|Informes">Pipetas<span>ISO 8655</span></button>
+          <button role="tab" data-img="cabina-bioseguridad-2-5-4-scaled.jpg" data-l="EN 12469|Cualificación|Cambio de filtros|Informes">Cabinas de bioseguridad<span>EN 12469</span></button>
+          <button role="tab" data-img="laminar-flow-cabinet-5-4.jpg" data-l="ISO 14644|Cualificación|Cambio de filtros|Informes">Cabinas de flujo laminar<span>ISO 14644</span></button>
+          <button role="tab" data-img="vitrina-extractora-5-4.png" data-l="EN 14175|Vitrinas de extracción|Mesas de tallado|Informes">Extracción<span>EN 14175</span></button>
+          <button role="tab" data-img="destilador-5-4.jpg" data-l="Destiladores|Digestores|Analizadores">Equipos de análisis</button>
+          <button role="tab" data-img="autoclave-5-4-scaled.jpg" data-l="Reparación|Mantenimiento|Cualificación">Autoclaves</button>
+          <button role="tab" data-img="Ultracongelador-de-laboratorio-a-5-4.png" data-l="Ultracongeladores|Frigoríficos|Liofilizadores|Cualificación">Frío</button>
+          <button role="tab" data-img="incubador-5-4-scaled.jpg" data-l="Incubadores|Estufas|Placas calefactoras|Cualificación">Calor</button>
+          <button role="tab" data-img="equipo-agua-5-4-scaled.jpg" data-l="Purificación|Desionización|Filtros y consumibles|Mantenimiento">Equipos de agua</button>
+          <button role="tab" data-img="centrifuga-5-4-scaled.jpg" data-l="Centrífugas|Agitadores|Balanzas|Microscopios">Otros equipos</button>
         </div>
         <div class="viewer" role="tabpanel" aria-live="polite">
           <div class="viewer-frame" id="frame"></div>
-          <div class="viewer-text">
-            <h3 id="viewer-title"></h3>
-            <p id="viewer-desc"></p>
-          </div>
+          <h3 id="viewer-title"></h3>
+          <ul class="viewer-tags" id="viewer-tags"></ul>
         </div>
+      </div>
+      <p class="gear-note">¿No aparece tu equipo? Se atienden otros bajo consulta. <a class="more" href="contacto.html">Consultar un equipo</a></p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="persona-t">
+    <div class="wrap person">
+      <div class="portrait"><img src="img/inigo-sola.webp" width="520" height="782" alt="Iñigo Sola, técnico de SERTES" loading="lazy"></div>
+      <div>
+        <h2 id="persona-t">Hablas directamente con el técnico que hace el trabajo</h2>
+        <p>Detrás de SERTES está Iñigo Sola, técnico electrónico especializado en equipos de laboratorio, con dos años y medio como responsable del SAT de un fabricante y distribuidor de referencia del sector.</p>
+        <p>Quien recibe tu aviso es quien diagnostica el equipo, lo repara y sigue la intervención hasta el final, sin intermediarios.</p>
+        <dl class="values">
+          <div><dt>Honestidad</dt><dd>Relación cercana y de confianza.</dd></div>
+          <div><dt>Rigor</dt><dd>Diagnóstico acertado y cumplimiento normativo.</dd></div>
+          <div><dt>Rapidez</dt><dd>Respuesta sin demoras innecesarias.</dd></div>
+        </dl>
+        <a class="more" href="sertes.html">Conocer SERTES</a>
       </div>
     </div>
   </section>
 
-  <section class="band process" id="asistencia">
+  <section class="band band-steel" aria-labelledby="pasos-t">
     <div class="wrap">
       <div class="intro">
-        <h2>Cómo solicitar asistencia</h2>
+        <h2 id="pasos-t">Cómo solicitar asistencia</h2>
         <p>Para equipos averiados, mantenimientos pendientes o calibraciones y cualificaciones certificadas.</p>
       </div>
-      <ol class="steps" style="list-style:none;padding:0;margin:0">
+      <ol class="steps">
         <li>
           <span class="num" aria-hidden="true">1</span>
           <h3>Describe la necesidad</h3>
@@ -510,28 +166,20 @@ body{padding-bottom:0}
           <p>Para que el laboratorio vuelva a estar operativo lo antes posible.</p>
         </li>
       </ol>
-      <a class="btn btn-blue" href="#contacto">Solicitar asistencia</a>
-    </div>
-  </section>
-
-  <section class="band cover" id="cobertura">
-    <div class="wrap cover-grid">
-      <div>
-        <h2>Servicio técnico para laboratorios en Navarra</h2>
+      <div class="coverage">
         <ul>
-          <li>Sede en Pamplona.</li>
-          <li>Cobertura en Navarra y zonas limítrofes.</li>
-          <li>Otras zonas, bajo consulta.</li>
+          <li>Sede en Pamplona</li>
+          <li>Cobertura en Navarra y zonas limítrofes</li>
+          <li>Otras zonas, bajo consulta</li>
         </ul>
       </div>
-      <img src="https://sertes.es/wp-content/uploads/2026/11/Laboratorio-trabajando-scaled.jpg" alt="Técnico de laboratorio trabajando con una pipeta" loading="lazy">
     </div>
   </section>
 
-  <section class="band contact" id="contacto">
+  <section class="band band-dark" id="contacto" aria-labelledby="contacto-t">
     <div class="wrap contact-grid">
       <div>
-        <h2>Solicita asistencia técnica</h2>
+        <h2 id="contacto-t">Solicita asistencia técnica</h2>
         <p>Describe el equipo y lo que necesitas. Recibirás respuesta a la mayor brevedad, con presupuesto sin compromiso.</p>
         <dl class="channels">
           <div><dt>Teléfono</dt><dd><a href="tel:+34603082442">+34 603 082 442</a></dd></div>
@@ -540,83 +188,71 @@ body{padding-bottom:0}
           <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/company/sertes-servicio-t%C3%A9cnico-especializado/" target="_blank" rel="noopener">Perfil de SERTES</a></dd></div>
         </dl>
       </div>
-
       <form class="form" id="form">
         <div class="field"><label for="nombre">Nombre *</label><input id="nombre" name="nombre" required autocomplete="name"></div>
         <div class="field"><label for="email">Correo electrónico *</label><input id="email" name="email" type="email" required autocomplete="email"></div>
         <div class="field"><label for="telefono">Teléfono</label><input id="telefono" name="telefono" type="tel" autocomplete="tel"></div>
         <div class="field"><label for="empresa">Empresa</label><input id="empresa" name="empresa" autocomplete="organization"></div>
         <div class="field wide"><label for="asunto">Asunto</label><input id="asunto" name="asunto"></div>
-        <div class="field wide"><label for="mensaje">Mensaje *</label><textarea id="mensaje" name="mensaje" required></textarea></div>
+        <div class="field wide"><label for="mensaje">Mensaje *</label><textarea id="mensaje" name="mensaje" required placeholder="Equipo, marca y modelo, y qué ocurre o qué necesitas."></textarea></div>
         <p class="note">Los campos marcados con * son obligatorios.</p>
-        <label class="consent"><input type="checkbox" id="acepto" required><span>He leído y acepto la <a href="https://sertes.es/politica-de-privacidad/" target="_blank" rel="noopener">política de privacidad</a>.</span></label>
+        <label class="consent"><input type="checkbox" required><span>He leído y acepto la <a href="privacidad.html">política de privacidad</a>.</span></label>
         <button class="btn btn-blue" type="submit">Enviar solicitud</button>
       </form>
     </div>
   </section>
+
 </main>
 
 <footer class="foot">
   <div class="wrap">
-    <span class="brand">S<b>E</b>RT<b>E</b>S<i></i></span>
-    <span>© <span id="year">2026</span> SERTES. Servicio técnico especializado. Pamplona, Navarra.</span>
-    <nav aria-label="Legal">
-      <a href="https://sertes.es/aviso-legal/">Aviso legal</a>
-      <a href="https://sertes.es/politica-de-privacidad/">Política de privacidad</a>
-      <a href="https://sertes.es/politica-de-cookies/">Política de cookies</a>
-    </nav>
+    <div class="foot-top">
+      <div>
+        <span class="brand">SERTES<i></i></span>
+        <p class="foot-about">Servicio técnico especializado en equipos de laboratorio. Pamplona, Navarra.</p>
+      </div>
+      <div>
+        <p class="foot-h">Servicios</p>
+        <ul>
+          <li><a href="mantenimiento.html">Mantenimiento y reparación</a></li>
+          <li><a href="calibracion.html">Cualificación y calibración</a></li>
+          <li><a href="fabricantes.html">SAT para fabricantes</a></li>
+          <li><a href="index.html#equipos">Equipos atendidos</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-h">SERTES</p>
+        <ul>
+          <li><a href="sertes.html">Sobre SERTES</a></li>
+          <li><a href="contacto.html">Solicitar asistencia</a></li>
+          <li><a href="https://www.linkedin.com/company/sertes-servicio-t%C3%A9cnico-especializado/" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-h">Contacto</p>
+        <ul>
+          <li><a href="tel:+34603082442">+34 603 082 442</a></li>
+          <li><a href="mailto:sertes@sertes.es">sertes@sertes.es</a></li>
+          <li><a href="https://wa.me/34603082442" target="_blank" rel="noopener">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span class="year">2026</span> SERTES · Servicio Técnico Especializado</span>
+      <nav aria-label="Legal">
+        <a href="aviso-legal.html">Aviso legal</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="cookies.html">Política de cookies</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
+<div class="callbar" aria-label="Contacto rápido">
+  <a class="btn btn-blue" href="tel:+34603082442">Llamar</a>
+  <a class="btn btn-line" href="https://wa.me/34603082442" target="_blank" rel="noopener">WhatsApp</a>
+</div>
 
-<script>
-document.getElementById('year').textContent = new Date().getFullYear();
-
-
-// Menú móvil
-const burger = document.querySelector('.burger'), menu = document.getElementById('menu');
-burger.addEventListener('click', () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? 'Cerrar menú' : 'Abrir menú'); });
-const closeMenu = () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); burger.setAttribute('aria-label', 'Abrir menú'); };
-menu.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
-document.addEventListener('click', e => { if (!e.target.closest('.site')) closeMenu(); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
-
-// Selector de equipos
-const BASE = 'https://sertes.es/wp-content/uploads/2026/11/';
-const tabs = [...document.querySelectorAll('.gear-list button')];
-const frame = document.getElementById('frame'), title = document.getElementById('viewer-title'), desc = document.getElementById('viewer-desc');
-const photos = tabs.map(t => {
-  const im = new Image();
-  im.alt = ''; im.src = BASE + t.dataset.img;
-  frame.appendChild(im);
-  return im;
-});
-function pick(i) {
-  tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === i); t.tabIndex = k === i ? 0 : -1; photos[k].classList.toggle('on', k === i); });
-  title.textContent = tabs[i].firstChild.textContent.trim();
-  desc.textContent = tabs[i].dataset.d;
-}
-tabs.forEach((t, i) => {
-  t.addEventListener('click', () => pick(i));
-  t.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover) and (min-width:761px)').matches) pick(i); });
-  t.addEventListener('keydown', e => {
-    const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
-    if (!d) return;
-    e.preventDefault();
-    const k = (i + d + tabs.length) % tabs.length;
-    pick(k); tabs[k].focus();
-  });
-});
-pick(0);
-
-// Formulario: versión estática, abre el programa de correo con la solicitud redactada.
-// Al integrarlo en WordPress, sustituir por el envío del formulario del sitio.
-document.getElementById('form').addEventListener('submit', e => {
-  e.preventDefault();
-  const d = new FormData(e.target);
-  const body = ['Nombre: ' + d.get('nombre'), 'Correo: ' + d.get('email'), 'Teléfono: ' + (d.get('telefono') || '-'), 'Empresa: ' + (d.get('empresa') || '-'), '', d.get('mensaje')].join('\n');
-  location.href = 'mailto:sertes@sertes.es?subject=' + encodeURIComponent(d.get('asunto') || 'Solicitud de asistencia desde la web') + '&body=' + encodeURIComponent(body);
-});
-</script>
+<script src="web.js"></script>
 </body>
 </html>
