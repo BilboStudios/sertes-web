@@ -103,15 +103,15 @@ button,input,textarea{font:inherit}
 .norms dd{font-size:16px;margin-top:4px}
 
 /* Servicios */
-.service{display:grid;grid-template-columns:260px 1fr 1.1fr;gap:32px 56px;padding-block:40px;border-top:1px solid var(--rule);align-items:start}
-.service img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:4px}
-.service:last-child{border-bottom:1px solid var(--rule)}
-.service h3 + p{margin-top:12px;color:var(--ink);font-weight:500;max-width:440px}
-.service ul{display:grid;gap:12px}
-.service li{padding-left:20px;position:relative}
-.service li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--blue)}
-.service a{display:inline-block;margin-top:22px;color:var(--link);font-weight:600;text-underline-offset:5px}
+.service{display:grid;grid-template-columns:1fr 1.3fr;gap:28px 64px;padding-block:36px 44px;border-top:2px solid var(--ink);align-items:start}
+.service h3{font-size:clamp(28px,3.1vw,42px);line-height:1.05}
+.service h3 + p{margin-top:14px;font-size:20px;color:var(--ink);font-weight:500;max-width:420px}
+.service a{display:inline-block;margin-top:24px;color:var(--link);font-weight:600;text-underline-offset:5px}
 .service a:hover{text-decoration-thickness:2px}
+.spec{background:var(--steel);border-radius:4px;padding:6px 28px}
+.spec div{display:grid;grid-template-columns:170px 1fr;gap:8px 24px;padding:18px 0}
+.spec div + div{border-top:1px solid var(--rule)}
+.spec dt{color:var(--ink);font-weight:600}
 
 /* Equipos */
 .gear{background:var(--navy);color:var(--on-dark)}
@@ -195,8 +195,6 @@ button,input,textarea{font:inherit}
 
 /* Oscuro: toda la página sobre fondo oscuro */
 [data-tema="oscuro"]{color-scheme:dark;--white:var(--deep);--steel:var(--navy);--ink:#ffffff;--text:var(--on-dark);--rule:var(--rule-dark);--link:var(--sky)}
-[data-tema="oscuro"] .service img{opacity:.92}
-[data-tema="oscuro"] .service li::before{background:var(--sky)}
 [data-tema="oscuro"] .btn-white{color:var(--navy)}
 [data-tema="oscuro"] :focus-visible{outline-color:var(--sky)}
 [data-tema="oscuro"] .field input,[data-tema="oscuro"] .field textarea{border-color:rgba(255,255,255,.35)}
@@ -240,9 +238,7 @@ body{padding-bottom:0}
   .band{padding-block:84px}
   .norms .wrap{grid-template-columns:repeat(4,1fr)}
   .norms p{grid-column:1/-1;max-width:none}
-  .service{grid-template-columns:200px 1fr;gap:24px 32px}
-  .service > div:last-child{grid-column:2}
-  .gear-grid,.cover-grid,.contact-grid{grid-template-columns:1fr;gap:28px}
+  .service,.gear-grid,.cover-grid,.contact-grid{grid-template-columns:1fr;gap:28px}
   .gear-grid,.contact-grid,.cover-grid{gap:44px}
   .viewer{position:static;order:-1}
   .hero-photo{inset:0;opacity:.28;-webkit-mask-image:none;mask-image:none}
@@ -251,9 +247,8 @@ body{padding-bottom:0}
   body{font-size:17px}
   .band{padding-block:68px}
   .intro{margin-bottom:44px}
-  .service{grid-template-columns:1fr}
-  .service > div:last-child{grid-column:auto}
-  .service img{aspect-ratio:16/9}
+  .spec{padding:4px 20px}
+  .spec div{grid-template-columns:1fr;gap:4px}
   .burger{display:block}
   .menu{display:none;position:absolute;top:76px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--rule);flex-direction:column;align-items:stretch;gap:0;padding:4px 24px 24px}
   .menu.open{display:flex}
@@ -335,48 +330,42 @@ body{padding-bottom:0}
       </div>
 
       <article class="service">
-        <img src="https://sertes.es/wp-content/uploads/2026/11/autoclave-5-4-scaled.jpg" alt="Autoclave de laboratorio" loading="lazy">
         <div>
           <h3>Mantenimiento y reparación</h3>
           <p>Respuesta rápida para reducir al mínimo los tiempos de parada.</p>
-        </div>
-        <div>
-          <ul>
-            <li>Mantenimiento preventivo: revisiones y sustitución de consumibles (filtros HEPA, juntas, etc.).</li>
-            <li>Mantenimiento correctivo: diagnóstico preciso y reparación, in situ o en taller.</li>
-          </ul>
           <a href="https://sertes.es/servicios/#mantenimiento">Más sobre mantenimiento y reparación</a>
         </div>
+        <dl class="spec">
+          <div><dt>Preventivo</dt><dd>Revisiones y sustitución de consumibles: filtros HEPA, juntas, etc.</dd></div>
+          <div><dt>Correctivo</dt><dd>Diagnóstico preciso y reparación.</dd></div>
+          <div><dt>Dónde</dt><dd>In situ o en taller.</dd></div>
+        </dl>
       </article>
 
       <article class="service">
-        <img src="https://sertes.es/wp-content/uploads/2026/11/pipetas-5-4-scaled.jpg" alt="Pipetas en su soporte" loading="lazy">
         <div>
           <h3>Cualificación, calibración y verificación</h3>
           <p>Cumplimiento normativo y rigor técnico.</p>
-        </div>
-        <div>
-          <ul>
-            <li>Cualificaciones y verificaciones según normas ISO, EN y GMP.</li>
-            <li>Equipos de medida con certificado de calibración y resultados documentados.</li>
-          </ul>
           <a href="https://sertes.es/servicios/#calibracion">Más sobre cualificación y calibración</a>
         </div>
+        <dl class="spec">
+          <div><dt>Normas</dt><dd>Cualificaciones y verificaciones según ISO, EN y GMP.</dd></div>
+          <div><dt>Equipos de medida</dt><dd>Con certificado de calibración.</dd></div>
+          <div><dt>Documentación</dt><dd>Resultados documentados.</dd></div>
+        </dl>
       </article>
 
       <article class="service">
-        <img src="https://sertes.es/wp-content/uploads/2026/11/centrifuga-5-4-scaled.jpg" alt="Centrífuga de laboratorio" loading="lazy">
         <div>
           <h3>SAT para fabricantes y distribuidores</h3>
           <p>Servicio técnico de confianza en Navarra y la zona norte.</p>
-        </div>
-        <div>
-          <ul>
-            <li>Visitas de diagnóstico sin demoras y reparaciones in situ o en taller.</li>
-            <li>Instalación, puesta en marcha y soporte técnico. Otros servicios, bajo consulta.</li>
-          </ul>
           <a href="https://sertes.es/servicios/#sat">Más sobre el SAT para fabricantes</a>
         </div>
+        <dl class="spec">
+          <div><dt>Diagnóstico</dt><dd>Visitas sin demoras.</dd></div>
+          <div><dt>Reparación</dt><dd>In situ o en taller.</dd></div>
+          <div><dt>Puesta en marcha</dt><dd>Instalación y soporte técnico. Otros servicios, bajo consulta.</dd></div>
+        </dl>
       </article>
     </div>
   </section>
