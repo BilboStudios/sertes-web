@@ -82,7 +82,7 @@ button,input,textarea{font:inherit}
 
 /* Inicio */
 .hero{position:relative;background:var(--navy);color:var(--on-dark);isolation:isolate;overflow:hidden}
-.hero-photo{position:absolute;inset:0 0 0 40%;z-index:-2;background:url('https://sertes.es/wp-content/uploads/2026/11/Laboratorio-completo-flipped-scaled.jpg') center/cover;opacity:.6;
+.hero-photo{position:absolute;inset:0 0 0 40%;z-index:-2;background:url('https://sertes.es/wp-content/uploads/2026/11/Laboratorio-completo-flipped-scaled.jpg') center/cover;opacity:.6;filter:grayscale(1);mix-blend-mode:luminosity;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 50%);mask-image:linear-gradient(90deg,transparent,#000 50%)}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(var(--navy-rgb),.25),rgba(var(--navy-rgb),.9))}
 .hero-text{padding-block:112px 88px;max-width:880px}
@@ -177,7 +177,7 @@ button,input,textarea{font:inherit}
 
 
 /* ---------- Variantes de vista previa: color y tema ---------- */
-[data-color="cobalto"]{--navy:#0a1a3f;--ink:#0b1a3a;--blue:#2146e6;--blue-h:#1634b8;--sky:#8fa6ff;--tint:#dfe5ff;--panel:#152a63;--deep:#060f26;--navy-rgb:10,26,63;--steel:#eef1f8;--rule:#d4daea}
+[data-color="cobalto"]{--navy:#0b1548;--ink:#0c1440;--blue:#2146e6;--blue-h:#1634b8;--sky:#93a5ff;--tint:#dfe5ff;--panel:#1b2b6a;--deep:#060a23;--navy-rgb:11,21,72;--steel:#eef0f9;--rule:#d5d9ec;--on-dark:#cdd3ee}
 [data-color="turquesa"]{--navy:#0c2b33;--ink:#0c2b33;--text:#47595f;--blue:#1bd0bf;--blue-h:#12b5a6;--on-blue:#05262b;--link:#087f78;--sky:#55e3d5;--tint:#d3f3ef;--panel:#17404b;--deep:#07181c;--navy-rgb:12,43,51;--steel:#edf3f3;--rule:#d3dedf;--on-dark:#c7d8da}
 
 /* Letra: Archivo en toda la web */
@@ -201,7 +201,7 @@ button,input,textarea{font:inherit}
 
 /* Claro: toda la página sobre fondo claro; solo el pie queda oscuro */
 [data-tema="claro"] .hero{background:var(--steel);color:var(--text)}
-[data-tema="claro"] .hero-photo{inset:0 0 0 38%;opacity:1;-webkit-mask-image:linear-gradient(90deg,transparent 4%,#000 46%);mask-image:linear-gradient(90deg,transparent 4%,#000 46%)}
+[data-tema="claro"] .hero-photo{inset:0 0 0 38%;opacity:1;filter:none;mix-blend-mode:normal;-webkit-mask-image:linear-gradient(90deg,transparent 4%,#000 46%);mask-image:linear-gradient(90deg,transparent 4%,#000 46%)}
 [data-tema="claro"] .hero::after{background:linear-gradient(0deg,var(--steel) 0 172px,transparent 172px)}
 [data-tema="claro"] .hero h1,[data-tema="claro"] .points strong{color:var(--ink)}
 [data-tema="claro"] .hero-text p{color:var(--text)}
