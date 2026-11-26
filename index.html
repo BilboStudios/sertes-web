@@ -200,16 +200,16 @@ button,input,textarea{font:inherit}
 [data-tema="oscuro"] .field input,[data-tema="oscuro"] .field textarea{border-color:rgba(255,255,255,.35)}
 
 /* Claro: toda la página sobre fondo claro; solo el pie queda oscuro */
-[data-tema="claro"] .hero{background:var(--steel);color:var(--text)}
-[data-tema="claro"] .hero-photo{inset:0 0 0 38%;opacity:1;filter:none;mix-blend-mode:normal;-webkit-mask-image:linear-gradient(90deg,transparent 4%,#000 46%);mask-image:linear-gradient(90deg,transparent 4%,#000 46%)}
-[data-tema="claro"] .hero::after{background:linear-gradient(0deg,var(--steel) 0 172px,transparent 172px)}
-[data-tema="claro"] .hero h1,[data-tema="claro"] .points strong{color:var(--ink)}
-[data-tema="claro"] .hero-text p{color:var(--text)}
-[data-tema="claro"] .points,[data-tema="claro"] .points li + li{border-color:var(--rule)}
-[data-tema="claro"] .hero .btn-white{background:var(--blue);color:var(--on-blue)}
-[data-tema="claro"] .hero .btn-white:hover{background:var(--blue-h)}
-[data-tema="claro"] .hero .btn-outline{border-color:var(--ink);color:var(--ink)}
-[data-tema="claro"] .hero .btn-outline:hover{background:rgba(0,0,0,.05)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .hero{background:var(--steel);color:var(--text)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .hero-photo{inset:0 0 0 38%;opacity:1;filter:none;mix-blend-mode:normal;-webkit-mask-image:linear-gradient(90deg,transparent 4%,#000 46%);mask-image:linear-gradient(90deg,transparent 4%,#000 46%)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .hero::after{background:linear-gradient(0deg,var(--steel) 0 172px,transparent 172px)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .hero h1,:is([data-tema="claro"],[data-tema="hibrido"]) .points strong{color:var(--ink)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .hero-text p{color:var(--text)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .points,:is([data-tema="claro"],[data-tema="hibrido"]) .points li + li{border-color:var(--rule)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .hero .btn-white{background:var(--blue);color:var(--on-blue)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .hero .btn-white:hover{background:var(--blue-h)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .hero .btn-outline{border-color:var(--ink);color:var(--ink)}
+:is([data-tema="claro"],[data-tema="hibrido"]) .hero .btn-outline:hover{background:rgba(0,0,0,.05)}
 [data-tema="claro"] .gear{background:var(--white);color:var(--text);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 [data-tema="claro"] .gear h2,[data-tema="claro"] .viewer h3,[data-tema="claro"] .contact h2{color:var(--ink)}
 [data-tema="claro"] .gear-list,[data-tema="claro"] .gear-list button,[data-tema="claro"] .channels,[data-tema="claro"] .channels div{border-color:var(--rule)}
@@ -222,7 +222,8 @@ button,input,textarea{font:inherit}
 [data-tema="claro"] .contact{background:var(--steel);color:var(--text)}
 [data-tema="claro"] .channels dd a{color:var(--ink)}
 [data-tema="claro"] .hero :focus-visible,[data-tema="claro"] .gear :focus-visible,[data-tema="claro"] .contact :focus-visible{outline-color:var(--blue)}
-@media (max-width:1000px){[data-tema="claro"] .hero-photo{inset:0;opacity:.12;-webkit-mask-image:none;mask-image:none}[data-tema="claro"] .hero::after{background:none}}
+@media (max-width:1000px){:is([data-tema="claro"],[data-tema="hibrido"]) .hero-photo{inset:0;opacity:.12;-webkit-mask-image:none;mask-image:none}:is([data-tema="claro"],[data-tema="hibrido"]) .hero::after{background:none}}
+[data-tema="hibrido"] .hero :focus-visible{outline-color:var(--blue)}
 @media (max-width:720px){[data-tema="claro"] .gear-list button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:none}}
 
 /* Barra de vista previa (solo para la demostración; se quita en la web final) */
@@ -483,7 +484,7 @@ body{padding-bottom:0}
 
 <div class="demo" role="group" aria-label="Vista previa">
   <span>Tema</span>
-  <div><button data-tema="">Mixto</button><button data-tema="claro">Claro</button><button data-tema="oscuro">Oscuro</button></div>
+  <div><button data-tema="">Mixto</button><button data-tema="hibrido">Portada clara</button><button data-tema="claro">Claro</button><button data-tema="oscuro">Oscuro</button></div>
   <span>Color</span>
   <div><button data-color="">Azul</button><button data-color="cobalto">Cobalto</button><button data-color="turquesa">Turquesa</button></div>
   <span>Nombre</span>
