@@ -23,7 +23,7 @@ MENU = [
     ('mantenimiento', 'mantenimiento.html', 'Mantenimiento'),
     ('calibracion', 'calibracion.html', 'Calibración'),
     ('fabricantes', 'fabricantes.html', 'Fabricantes'),
-    ('equipos', 'index.html#equipos', 'Equipos'),
+    ('equipos', 'equipos.html', 'Equipos'),
     ('sertes', 'sertes.html', 'Sobre SERTES'),
 ]
 
@@ -101,7 +101,7 @@ PIE = f'''<footer class="foot">
           <li><a href="mantenimiento.html">Mantenimiento y reparación</a></li>
           <li><a href="calibracion.html">Cualificación y calibración</a></li>
           <li><a href="fabricantes.html">SAT para fabricantes</a></li>
-          <li><a href="index.html#equipos">Equipos atendidos</a></li>
+          <li><a href="equipos.html">Equipos atendidos</a></li>
         </ul>
       </div>
       <div>
