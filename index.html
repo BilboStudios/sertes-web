@@ -235,45 +235,125 @@ button,input,textarea{font:inherit}
 [data-tema="claro"] .contact{background:var(--steel);color:var(--text)}
 [data-tema="claro"] .channels dd a{color:var(--ink)}
 [data-tema="claro"] .hero :focus-visible,[data-tema="claro"] .gear :focus-visible,[data-tema="claro"] .contact :focus-visible{outline-color:var(--blue)}
-@media (max-width:1000px){:is([data-tema="claro"],[data-tema="hibrido"]) .hero-photo{inset:0;opacity:.12;-webkit-mask-image:none;mask-image:none}:is([data-tema="claro"],[data-tema="hibrido"]) .hero::after{background:none}}
 [data-tema="hibrido"] .hero :focus-visible{outline-color:var(--blue)}
-@media (max-width:720px){[data-tema="claro"] .gear-list button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:none}}
-
 body{padding-bottom:0}
 
-@media (max-width:1000px){
-  .band{padding-block:84px}
-  .norms .wrap{grid-template-columns:repeat(4,1fr)}
-  .norms p{grid-column:1/-1;max-width:none}
-  .service,.gear-grid,.cover-grid,.contact-grid{grid-template-columns:1fr;gap:28px}
-  .gear-grid,.contact-grid,.cover-grid{gap:44px}
-  .viewer{position:static;order:-1}
-  .hero-photo{inset:0;opacity:.28;-webkit-mask-image:none;mask-image:none}
+/* ---------- Tableta en horizontal y portátil pequeño: el titular no pisa la foto ---------- */
+@media (min-width:1001px) and (max-width:1240px){
+  .hero-text{max-width:54%;padding-block:88px 72px}
+  :is([data-tema="claro"],[data-tema="hibrido"]) .hero-photo{inset:0 0 0 50%}
+  .gear-grid,.contact-grid,.cover-grid{gap:48px}
 }
-@media (max-width:720px){
-  body{font-size:17px}
-  .band{padding-block:68px}
-  .intro{margin-bottom:44px}
-  .spec{padding:4px 20px}
-  .spec div{grid-template-columns:1fr;gap:4px}
-  .burger{display:block}
-  .menu{display:none;position:absolute;top:76px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--rule);flex-direction:column;align-items:stretch;gap:0;padding:4px 24px 24px}
+
+/* ---------- Tableta (hasta 1000 px) ---------- */
+@media (max-width:1000px){
+  .band{padding-block:80px}
+  .intro{margin-bottom:48px}
+  .menu{gap:24px}
+  /* La foto de portada deja de ser fondo y pasa a ser una pieza entre el texto y los tres puntos */
+  .hero::after{display:none}
+  .hero-text{padding-block:72px 48px;max-width:680px}
+  .hero .wrap .hero-photo{position:static;z-index:auto;opacity:1;filter:none;mix-blend-mode:normal;-webkit-mask-image:none;mask-image:none;aspect-ratio:21/9;border-radius:4px;margin-bottom:12px}
+  .points{border-top:0}
+  .points li{padding:24px 24px 44px 0}
+  .points li + li{padding-left:24px}
+  .norms .wrap{grid-template-columns:repeat(4,1fr);gap:28px 24px}
+  .norms p{grid-column:1/-1;max-width:none}
+  .service{grid-template-columns:1fr 1.2fr;gap:24px 36px}
+  .spec{padding:4px 22px}
+  .spec div{grid-template-columns:1fr;gap:2px;padding:14px 0}
+  .gear-grid{grid-template-columns:1fr 1.1fr;gap:36px}
+  .gear-list button{padding:13px 12px;gap:12px}
+  .viewer{top:100px}
+  .cover-grid{gap:40px}
+  .cover ul{margin-top:28px}
+  .contact-grid{grid-template-columns:1fr;gap:44px}
+  .contact-grid > div > p{max-width:560px}
+  .channels{display:grid;grid-template-columns:1fr 1fr;column-gap:40px;margin-top:36px}
+  .channels div{grid-template-columns:1fr;gap:2px;padding:16px 0}
+  .steps{gap:28px}
+}
+
+/* ---------- Móvil (hasta 760 px) ---------- */
+@media (max-width:760px){
+  html{scroll-padding-top:72px}
+  body,[data-letra="archivo"] body{font-size:17px}
+  .wrap{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+  .band{padding-block:60px}
+  .intro{margin-bottom:36px}
+  .intro p,.contact-grid > div > p{font-size:18px;margin-top:14px}
+
+  .site .wrap{height:64px}
+  .burger{display:grid;place-items:center;width:44px;height:44px;margin-right:-9px;padding:0}
+  .burger span{margin:0;grid-area:1/1;transition:transform .2s}
+  .burger span:first-child{transform:translateY(-4px)}
+  .burger span:last-child{transform:translateY(4px)}
+  .burger[aria-expanded="true"] span:first-child{transform:rotate(45deg)}
+  .burger[aria-expanded="true"] span:last-child{transform:rotate(-45deg)}
+  .menu{display:none;position:absolute;top:64px;left:0;right:0;max-height:calc(100dvh - 64px);overflow-y:auto;background:var(--white);border-bottom:1px solid var(--rule);box-shadow:0 18px 30px rgba(var(--navy-rgb),.14);flex-direction:column;align-items:stretch;gap:0;padding:4px max(20px,env(safe-area-inset-right,0px)) 24px max(20px,env(safe-area-inset-left,0px))}
   .menu.open{display:flex}
-  .menu a:not(.btn){padding:16px 0;border-bottom:1px solid var(--rule)}
-  .menu .btn{margin-top:18px;text-align:center}
-  .hero-text{padding-block:72px 56px}
+  .menu a:not(.btn){padding:16px 0;font-size:19px;border-bottom:1px solid var(--rule)}
+  .menu .btn{margin-top:20px;padding:15px 22px;text-align:center}
+
+  .hero-text{padding-block:44px 36px}
+  .hero-text p{margin-block:18px 28px}
+  .hero .wrap .hero-photo{aspect-ratio:16/10;margin-bottom:4px}
   .points{grid-template-columns:1fr}
-  .points li,.points li + li{padding:22px 0;border-left:0}
-  .points li + li{border-top:1px solid var(--rule-dark)}
-  .norms .wrap{grid-template-columns:1fr 1fr;gap:24px}
+  .points li,.points li + li{padding:20px 0;border-left:0}
+  .points li + li{border-top:1px solid var(--rule)}
+  .points li:last-child{padding-bottom:44px}
+
+  .norms .wrap{grid-template-columns:1fr 1fr;gap:22px 20px;padding-block:32px}
+  .service{grid-template-columns:1fr;gap:22px;padding-block:28px 36px}
+  .service h3 + p{font-size:18px;margin-top:10px}
+  .service a{margin-top:16px}
+  .spec{padding:2px 18px}
+
+  /* Equipos: las opciones van arriba, en fichas, y la foto cambia justo debajo */
+  .gear-grid{grid-template-columns:1fr;gap:24px}
   .gear-list{border:0;display:flex;flex-wrap:wrap;gap:8px}
-  .gear-list button{width:auto;padding:9px 14px;border:1px solid var(--rule-dark);border-radius:4px;font-family:var(--body);font-size:16px}
+  .gear-list button{width:auto;min-height:44px;padding:9px 14px;border:1px solid var(--rule-dark);border-radius:4px;font-family:var(--body);font-size:16px}
+  [data-letra="archivo"] .gear-list button{font-size:16px}
   .gear-list button span{display:none}
   .gear-list button[aria-selected="true"]{background:#fff;color:var(--ink);border-color:#fff;box-shadow:none}
-  .viewer-text{min-height:104px}
-  .steps{grid-template-columns:1fr;gap:36px}
-  .form{grid-template-columns:1fr;padding:26px 22px}
-  .channels div{grid-template-columns:96px 1fr}
+  [data-tema="claro"] .gear-list button[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .viewer{position:static}
+  .viewer h3{margin-top:16px}
+  .viewer-text{min-height:92px}
+
+  .steps{grid-template-columns:1fr;gap:28px}
+  .steps .num{font-size:44px;margin-bottom:12px}
+  .steps li{padding-top:16px}
+  .process .btn{margin-top:40px}
+
+  .cover-grid{grid-template-columns:1fr;gap:32px}
+  .cover li{font-size:18px;padding:15px 0}
+  .cover img{aspect-ratio:3/2}
+
+  .contact-grid{gap:36px}
+  .channels{grid-template-columns:1fr;margin-top:28px}
+  .channels div{grid-template-columns:96px 1fr;gap:12px;padding:15px 0}
+  .form{grid-template-columns:1fr;gap:18px;padding:24px 18px}
+  .field input,.field textarea{padding:12px;font-size:17px}
+  .consent input{width:22px;height:22px;margin-top:1px;flex:none}
+
+  .foot .wrap{flex-direction:column;align-items:flex-start;gap:14px;padding-block:28px 32px}
+  .foot nav{gap:4px 22px}
+  .foot nav a{padding-block:8px}
+}
+
+/* ---------- Móvil estrecho: botones a todo el ancho ---------- */
+@media (max-width:480px){
+  .actions{flex-direction:column}
+  .actions .btn,.process .btn,.form .btn{width:100%;text-align:center;justify-self:stretch}
+}
+
+/* ---------- Móvil en horizontal: la cabecera y el visor no se quedan fijos ---------- */
+@media (max-height:520px){
+  .site{position:static}
+  html{scroll-padding-top:12px}
+  .viewer{position:static}
+  .menu{max-height:none}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
@@ -299,7 +379,6 @@ body{padding-bottom:0}
 <main id="inicio">
 
   <div class="hero">
-    <div class="hero-photo" role="img" aria-label="Laboratorio con equipos de análisis"></div>
     <div class="wrap">
       <div class="hero-text">
         <h1>Tu laboratorio siempre en marcha, con un único servicio técnico</h1>
@@ -309,6 +388,7 @@ body{padding-bottom:0}
           <a class="btn btn-outline" href="#servicios">Ver servicios</a>
         </div>
       </div>
+      <div class="hero-photo" role="img" aria-label="Laboratorio con equipos de análisis"></div>
       <ul class="points">
         <li><strong>Equipos multimarca</strong>Mantenimiento y reparación de equipos de laboratorio de cualquier fabricante.</li>
         <li><strong>Conforme a norma</strong>Calibración, cualificación y verificación según normas ISO, EN y GMP.</li>
@@ -495,8 +575,11 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // Menú móvil
 const burger = document.querySelector('.burger'), menu = document.getElementById('menu');
-burger.addEventListener('click', () => burger.setAttribute('aria-expanded', menu.classList.toggle('open')));
-menu.addEventListener('click', e => { if (e.target.closest('a')) { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); } });
+burger.addEventListener('click', () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? 'Cerrar menú' : 'Abrir menú'); });
+const closeMenu = () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); burger.setAttribute('aria-label', 'Abrir menú'); };
+menu.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
+document.addEventListener('click', e => { if (!e.target.closest('.site')) closeMenu(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
 // Selector de equipos
 const BASE = 'https://sertes.es/wp-content/uploads/2026/11/';
@@ -515,7 +598,7 @@ function pick(i) {
 }
 tabs.forEach((t, i) => {
   t.addEventListener('click', () => pick(i));
-  t.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover) and (min-width:721px)').matches) pick(i); });
+  t.addEventListener('mouseenter', () => { if (matchMedia('(hover:hover) and (min-width:761px)').matches) pick(i); });
   t.addEventListener('keydown', e => {
     const d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
     if (!d) return;
